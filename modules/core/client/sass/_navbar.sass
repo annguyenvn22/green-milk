@@ -1,0 +1,46 @@
+// declaring a mixin
+=navbar-props
+  color: $dark-blue
+  font-family: $font-open-sans
+  text-transform: uppercase
+
+  &:hover, &:focus
+    color: darken($dark-blue, 5)
+// end navbar-props mixin
+
+// styles for menu
+.navbar-fixed-top
+  background-color: white
+  border-color: rgba(231, 231, 231, 0)
+  .navbar-brand
+    color: $dark-blue
+    font-family: $font-onyx
+    font-size: 3em
+
+    &:hover, &:focus
+      color: darken($dark-blue, 5)
+
+  .navbar-nav li
+    cursor: pointer
+    & > .dropdown-menu
+      left: 0
+    & a
+      +navbar-props
+      font-weight: bold
+
+// when user scrolled down, navar background-color
+// will be change here
+.scrolled
+  .navbar-fixed-top
+    background-color: $dark-blue
+    .navbar-brand
+      // the big green milk on the left
+      color: white
+    .navbar-nav
+      & > li
+        .dropdown-menu
+          left: 0
+        & > a
+          // menus that have no sub menus
+          color: white
+        

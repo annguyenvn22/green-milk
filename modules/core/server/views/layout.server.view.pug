@@ -1,0 +1,30 @@
+doctype html
+html
+    head
+        base(href="/")
+        title= title
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(name="description" content=description)
+
+        // favicon
+        link(href=favicon rel="shortcut icon" type="image/x-icon")
+
+        // CSS files
+        each cssFile in cssFiles
+            link(rel="stylesheet" href=cssFile)
+
+    body.ng-cloak
+        section.container
+            include ../../client/views/navbar.client.view.pug
+            block content
+            include ../../client/views/footer.client.view.pug
+
+        - var user = {user}
+
+        // AngularJS files
+        each jsFile in jsFiles
+            script(src=jsFile)
+
+        // Live reload
+        - if (livereload)
+            script(type="text/javascript" src=host + ":35729/livereload.js")

@@ -1,0 +1,45 @@
+#checkout-step-two
+
+  .content
+    // overflow: auto --> border of .content bound 2 sub div
+    overflow: auto
+    padding: 0 7em
+
+    & > h3
+      color: $light-blue
+      font-family: $font-open-sans
+
+    .user-info
+      border: 1px dashed $bg-inactive
+      padding: 1em
+      margin-bottom: 2em
+
+    .update-info
+      h3
+        color: $light-grey
+
+      .update-form
+        overflow: auto
+        background-color: $light-grey
+        padding: 3em 8em
+        margin-bottom: 2em
+
+        .col-sm-8
+          margin-bottom: 1em
+        .col-sm-12
+          padding-right: 0
+
+    // We have 2 buttons --> make it abstract ahihihi
+    .btn
+      font-family: $font-tuv
+      font-weight: bold
+    .btn-primary
+      background-color: $light-blue
+      margin-right: .5em
+      margin-left: .5em
+
+      &:hover, &:focus
+        background-color: darken($light-blue, 10)
+
+    .alert.alert-danger
+        margin-top: 1em

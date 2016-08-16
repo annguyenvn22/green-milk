@@ -1,0 +1,29 @@
+#checkout-process
+    .header
+        h2 {{ vm.title }}
+    #checkout-step-one
+        .content
+            // left
+            .col-sm-7
+                h2 {{ vm.loginWithLabel }}
+                .text-center
+                    input#facebookRad(type='radio', name='registerWith', checked='checked')
+                    label.facebook(for='facebookRad' ng-click='vm.callOAuth("/api/auth/facebook")')
+                    input#googleRad(type='radio', name='registerWith')
+                    label.google(for='googleRad' ng-click='vm.callOAuth("/api/auth/google")')
+                h2#orLabel {{ vm.orLabel }}
+                .input-group
+                    span.input-group-addon
+                        i.fa.fa-user
+                    input.form-control.inputlg(type='text', placeholder='Enter username...')
+                .input-group
+                    span.input-group-addon
+                        i.fa.fa-key
+                    input.form-control.inputlg(type='text', placeholder='Enter password...')
+                .text-right
+                    btn.btn.btn-default.btn-success.btn-lg(ng-click='vm.goToStepTwo()') {{ vm.loginLabel }}
+            // right
+            .col-sm-5
+                h4 {{ vm.createNewAccountLabel }}
+                btn.btn.btn-default.btn-success.btn-lg.btn-facebook {{ vm.registerWithFacebook }}
+                btn.btn.btn-default.btn-success.btn-lg.btn-google {{ vm.registerWithGoogle }}

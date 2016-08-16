@@ -1,0 +1,8 @@
+#cart-single-milk
+    .row
+        .col-sm-4(ng-repeat='product in vm.products')
+            .text-center.milk-img
+                img(ng-src='{{ product.imgBig }}')
+            p.milk-name {{ product.name }}
+            p.milk-price {{ product.price | currency : '' : 0 }} đ
+            button.btn.btn-default(ng-click='vm.CartSingleService.addToCartSingle(product)') {{ vm.buttonLabel }}

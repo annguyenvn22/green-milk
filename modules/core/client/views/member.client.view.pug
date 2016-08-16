@@ -1,0 +1,5 @@
+#team.row(ng-controller='MemberController as vm')
+    h1.text-center {{ vm.header }}
+    .col-sm-4(ng-repeat='person in vm.members track by person.id')
+        img.img-responsive(ng-src='{{person.img}}')
+        h3.text-center {{ person.name }}

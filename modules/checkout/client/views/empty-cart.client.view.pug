@@ -1,0 +1,10 @@
+#empty-cart-exception
+    .alert.alert-danger.text-center(ng-if='vm.condition')
+        .text-center(role='alert') 
+            strong {{ vm.cartEmptyException }}
+        button.btn.btn-primary(ng-click="vm.goToCart('single')")
+            i.fa.fa-shopping-cart &nbsp;
+            span {{ vm.cartSingleLabel }}
+        button.btn.btn-primary(ng-click="vm.goToCart('monthly')")
+            i.fa.fa-calendar &nbsp;
+            span {{ vm.cartMonthlyLabel }}

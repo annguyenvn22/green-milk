@@ -1,0 +1,19 @@
+#cart-monthly-aweek
+    .week(ng-repeat='week in vm.month')
+        .header
+            .col-sm-2
+                h2 Tuần {{ $index + 1 }}:
+            .col.sm-6.col-sm-offset-4.text-right(ng-if='week.options.length > 0')
+                input(id='repeat-as-{{ $index }}', type='checkbox', ng-model='week.isCheckboxChecked')
+                label(for='repeat-as-{{ $index }}', ng-disabled='!week.isCheckboxChecked') Lặp lại như:
+                select(ng-model='week.copyOf', ng-change='vm.select($index)', ng-disabled='!week.isCheckboxChecked')
+                    option(ng-repeat='option in week.options', value='{{ option }}') {{ option }}
+        .day-of-week(ng-repeat='dayOfWeek in week', ng-if='dayOfWeek.bottles != undefined')
+            img(ng-src='{{ dayOfWeek.img.src }}', alt='{{ dayOfWeek.img.alt }}', data-drop='true', jqyoui-droppable="{multiple:true, onDrop:'vm.onDropCallBack(dayOfWeek)'}", ng-model='dayOfWeek.bottlesTmp')
+            .milk-container(data-drop='true', jqyoui-droppable="{multiple:true, onDrop:'vm.onDropCallBack(dayOfWeek)'}", ng-model='dayOfWeek.bottlesTmp', class='{{ dayOfWeek.greyBg }}')
+                .a-bottle-of-milk(ng-repeat='bottle in dayOfWeek.bottles track by bottle.id')
+                    img(ng-src='{{ bottle.imgItem }}', alt='item')
+                    span.badge {{ bottle.amount }}
+                    i.fa.fa-times-circle.fa-lg(aria-hidden='true', ng-click='vm.removeBottle(dayOfWeek, $index)')
+    .text-right
+        button.btn.btndefault.btn-primary.btn-lg(ng-click='vm.CartMonthlyService.isEmpty() ? event.preventDefault() : vm.checkout()' ng-disabled='vm.CartMonthlyService.isEmpty()') Thanh Toán

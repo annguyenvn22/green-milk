@@ -1,0 +1,34 @@
+#checkout-process
+    .header
+        h2 {{ vm.title }}
+    #checkout-step-two
+        .content
+            h3 {{ vm.header }}
+            .user-info
+                p.full-name.lead
+                    strong {{ vm.customer.fullName }}
+                p.address
+                    strong {{ vm.addressLabel }}
+                    span {{ vm.customer.address }}
+                p.phone-number
+                    strong {{ vm.phoneNumberLabel }}
+                    span {{ vm.customer.phoneNumber }}
+                .text-right
+                    button.btn.btn-default.btn-primary(ng-click='vm.goToStepThree()' ng-disabled='vm.service.isEmpty() || vm.notEditedYet') {{ vm.header }}
+                    button.btn.btn-default(ng-click='vm.isCollapsed = !vm.isCollapsed' ng-disabled='vm.service.isEmpty()') {{ vm.edit }}
+                
+                .alert.alert-danger.text-center(ng-hide='vm.service.isEmpty()' ng-show='vm.notEditedYet' role='alert') {{ vm.notEditUserException }}
+                gm-empty-cart-exception(condition='vm.service.isEmpty()')
+
+            .update-info#update-user-info(uib-collapse='vm.isCollapsed' expanded='vm.scrollDown()')
+                h3 {{ vm.updateAddress }}
+                .update-form
+                    .col-sm-8
+                        input.form-control.input(type='text' ng-model='vm.customerEdit.fullName')
+                    .col-sm-8
+                        input.form-control.input(type='text' ng-model='vm.customerEdit.phoneNumber')
+                    .col-sm-8
+                        textarea#address(name='address', cols='55', rows='8' ng-model='vm.customerEdit.address')
+                    .col-sm-12.text-right
+                        button.btn.btn-default(ng-click='vm.isCollapsed = true') {{ vm.cancelLabel }}
+                        button.btn.btn-default.btn-primary(ng-click='vm.updateCustomerInfo()') {{ vm.updateLabel }}

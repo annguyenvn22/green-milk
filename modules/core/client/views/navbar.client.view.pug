@@ -1,0 +1,19 @@
+.row(ng-controller='NavBarController as vm', scroll='scroll', ng-class='{scrolled: boolChangeClass}')
+    nav.navbar.navbar-default.navbar-fixed-top
+        .container
+            .navbar-header
+                button.navbar-toggle(aria-expanded='false', ng-click='vm.isCollapsed = !vm.isCollapsed')
+                    span.sr-only {{ vm.srOnly }}
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(ui-sref='homepage') {{ vm.brand }}
+            .collapse.navbar-collapse(uib-collapse='vm.isCollapsed')
+                ul.nav.navbar-nav.navbar-right
+                    li.dropdown(uib-dropdown='uib-dropdown', dropdown-append-to='dropdown-append-to' ng-repeat='menu in vm.menus')
+                        a(ui-sref='{{ menu.state }}' uib-dropdown-toggle='uib-dropdown-toggle' ng-if='menu.state' ng-bind='menu.name')
+                        a(uib-dropdown-toggle='uib-dropdown-toggle' ng-if='!menu.state') &nbsp; {{ menu.name }}
+                            span.caret(ng-if='menu.subMenus.length')
+                        ul.dropdown-menu(uib-dropdown-menu='uib-dropdown-menu' ng-if='menu.subMenus.length')
+                            li(ng-repeat='subMenu in menu.subMenus')
+                                a(ui-sref='{{subMenu.state}}') {{ subMenu.name }}

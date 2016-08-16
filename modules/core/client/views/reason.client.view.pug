@@ -1,0 +1,6 @@
+#reason.row(ng-controller='ReasonController as vm')
+    h1.text-center {{ vm.header }}
+    .col-sm-4(ng-repeat='reason in vm.reasons')
+        img(ng-src='{{ reason.img }}')
+        h1.text-center {{ reason.title }}
+        p {{reason.content}}

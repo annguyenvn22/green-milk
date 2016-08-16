@@ -1,0 +1,24 @@
+#checkout-process
+    .header
+        h2 {{ vm.title }}
+    #checkout-step-four
+        .content
+            div
+                input#cash(type='radio', name='checkout', value='cash', checked='checked', ng-model='vm.payment', ng-click='vm.selectARadio()')
+                label(for='cash') {{ vm.cashPaymentLabel }}
+            div
+                input#ebanking(type='radio', name='checkout', value='ebanking', ng-model='vm.payment', ng-click='vm.selectARadio()' ng-disabled="true")
+                label(for='ebanking') {{ vm.ebankingPaymentLabel }}
+            
+            
+            
+            .bank-icons(uib-collapse='vm.isCollapsed')
+                input#agribank(type='radio', name='select-bank', value='agribank')
+                label(for='agribank')
+                input#vietcombank(type='radio', name='select-bank', value='vietcombank')
+                label(for='vietcombank')
+            
+            gm-empty-cart-exception(condition='vm.service.isEmpty()')
+            
+            .text-right
+                button.btn.btn-default.btn-success(ng-click='vm.checkout()' ng-disabled="vm.service.isEmpty()") {{ vm.checkoutLabel }}

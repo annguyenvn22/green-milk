@@ -1,0 +1,18 @@
+#checkout-process
+    .header
+        h2 {{ vm.title }}
+    #checkout-step-three
+        .content
+            div(ui-grid='vm.gridOptions' ng-if='!vm.service.isEmpty() && vm.STATE === "single"')
+            div(ui-grid='vm.gridOptions' ng-if='!vm.service.isEmpty() && vm.STATE === "monthly"' ui-grid-tree-view)
+
+            gm-empty-cart-exception(condition='vm.service.isEmpty()')
+            
+            // buttons
+            .row
+                .col-md-6
+                    div.text-left
+                        button.btn.btn-default(ng-click='vm.backToStepTwo()' ng-disabled='vm.service.isEmpty()') {{ vm.backLabel }}
+                .col-md-6
+                    div.text-right
+                        button.btn.btn-success(ng-click='vm.goToStepFour()' ng-disabled='vm.service.isEmpty()') {{ vm.nextLabel }}

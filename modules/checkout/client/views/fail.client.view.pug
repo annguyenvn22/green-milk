@@ -1,0 +1,19 @@
+#fail.row
+    .col-md-10.col-md-offset-1.text-center
+        .alert.alert-danger(role='alert')
+            // stick and paragraph
+            span.fa.fa-stack.fa-lg
+                i.fa.fa-circle-o.fa-stack-2x
+                i.fa.fa-times.fa-stack-1x
+            span &nbsp;
+            span.greeting {{ vm.greeting }}
+
+            //- // buttons group: continue reserve milk or go to homepage
+            //- .btn-group(role='group')
+            //-     button.btn.btn-default(ng-click='vm.backToHomepage()')
+            //-         i.fa.fa-home.fa-2x &nbsp;
+            //-         span {{ vm.homepage }}
+
+            //-     button.btn.btn-primary(ng-click='vm.coninueShopping()')
+            //-         span {{ vm.shopping }} &nbsp;
+            //-         i.fa.fa-shopping-cart.fa-2x
