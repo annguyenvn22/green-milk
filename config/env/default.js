@@ -6,8 +6,8 @@ module.exports = {
         description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
         keywords   : 'mongodb, express, angularjs, node.js, mongoose, passport, green-milk, green milk, Green-Milk, Green Milk, GreenMilk'
     },
-    port             : process.env.PORT || 8080,
-    host             : process.env.HOST || '103.221.221.19',
+    port             : process.env.PORT || 3000,
+    host             : process.env.HOST || 'localhost',
     templateEngine   : 'pug',
     // Session Cookie settings
     sessionCookie    : {

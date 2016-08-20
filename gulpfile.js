@@ -2,12 +2,13 @@
 /**
  * Load dependencies
  */
-var gulp          = require('gulp'),
-    _             = require('lodash'),
-    defaultAssets = require('./config/assets/default'),
-    runSequence   = require('run-sequence'),
-    plugins       = require('gulp-load-plugins')({
-        rename: {
+var gulp                    = require('gulp'),
+    _                       = require('lodash'),
+    defaultAssets           = require('./config/assets/default'),
+    runSequence             = require('run-sequence'),
+     pngquant               = require('imagemin-pngquant'),
+    plugins                 = require('gulp-load-plugins')({
+        rename:               {
             'gulp-sass-glob': 'sassGlob'
         }
     });
@@ -44,6 +45,39 @@ gulp.task('env:dev', function () {
     process.env.NODE_ENV = 'development';
 });
 
+// Set NODE_ENV to 'production'
+gulp.task('env:prod', function () {
+  process.env.NODE_ENV = 'production';
+});
+
+
+// JS minifying task
+gulp.task('uglify', function () {
+  return gulp.src(defaultAssets.client.js)
+    .pipe(plugins.uglify())
+    .pipe(plugins.concat('application.min.js'))
+    .pipe(gulp.dest('public/dist'));
+});
+
+// CSS minifying task
+gulp.task('cssmin', function () {
+  return gulp.src(defaultAssets.client.css)
+    .pipe(plugins.csso())
+    .pipe(plugins.concat('application.min.css'))
+    .pipe(gulp.dest('public/dist'));
+});
+
+// Imagemin task
+gulp.task('imagemin', function () {
+  return gulp.src(defaultAssets.client.img)
+    .pipe(plugins.imagemin({
+      progressive: true,
+      svgoPlugins: [{ removeViewBox: false }],
+      use: [pngquant()]
+    }))
+    .pipe(gulp.dest('public/dist/img'));
+});
+
 
 // Watch Files For Changes
 gulp.task('watch', function () {
@@ -62,4 +96,15 @@ gulp.task('watch', function () {
 // Run the project in development mode
 gulp.task('default', function (done) {
     runSequence('env:dev', 'sass', ['nodemon', 'watch'], done);
+});
+
+// Lint project files and minify them into two production files.
+gulp.task('build', function (done) {
+  runSequence('env:dev', ['uglify', 'cssmin', 'imagemin'], done);
+});
+
+
+// Run the project in production mode
+gulp.task('prod', function (done) {
+  runSequence('build', 'env:prod', ['nodemon', 'watch'], done);
 });
