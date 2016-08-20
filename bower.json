@@ -4,7 +4,7 @@
     "AnNVC <annvcit@gmail.com>"
   ],
   "dependencies": {
-    "angular": "^1.5.4",
+    "angular": "^1.5.8",
     "angular-bootstrap": "^1.3.2",
     "bootstrap": "^3.3.6",
     "angular-ui-router": "^0.3.0",
