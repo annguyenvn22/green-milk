@@ -32,7 +32,6 @@ exports.pugToHtml = function (req, res, next) {
     // load file system module
     var fs          = require('fs'),
         _           = require('lodash'),
-
         requestFile = 'modules' + req.url + '.client.view.pug',
         extName     = '.pug';
 

@@ -46,7 +46,7 @@ gulp.task('env:dev', function () {
 });
 
 // Set NODE_ENV to 'c9'
-gulp.task('env:dev', function () {
+gulp.task('env:c9', function () {
     process.env.NODE_ENV = 'c9';
 });
 

@@ -11,7 +11,7 @@
         $stateProvider
             .state('admin', {
                 url: '/admin',
-                template: '<ui-view></ui-view>',
+                templateUrl: 'core/client/views/admin.template',
                 abstract: true
             })
     }

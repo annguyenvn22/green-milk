@@ -11,9 +11,14 @@
         $stateProvider
             .state('admin.login', {
                url: '/dang-nhap',
-               templateUrl: 'users/client/views/admin/login.admin',
-               controller: 'AdminLoginController',
-               controllerAs: 'vm'
+               views: {
+                   '@': { // <----- months later, I'm going to asking my self: what the fuck is this?
+                       templateUrl: 'users/client/views/admin/login.admin',
+                        controller: 'AdminLoginController',
+                        controllerAs: 'vm'
+                   }
+               }
+               
             });
     }
 }());
