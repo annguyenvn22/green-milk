@@ -4,9 +4,9 @@
     var applicationModuleName = 'green-milk';
 
     var service = {
-        applicationModuleName              : applicationModuleName,
+        applicationModuleName: applicationModuleName,
         applicationModuleVendorDependencies: ['ngResource', 'ngAnimate', 'ngMessages', 'ui.router', 'ui.bootstrap'],
-        registerModule                     : registerModule
+        registerModule: registerModule
     };
 
     window.ApplicationConfiguration = service;
