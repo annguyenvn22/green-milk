@@ -7,7 +7,7 @@ module.exports = {
         keywords   : 'mongodb, express, angularjs, node.js, mongoose, passport, green-milk, green milk, Green-Milk, Green Milk, GreenMilk'
     },
     port             : process.env.PORT || 3000,
-    host             : process.env.IP || 'localhost',
+    host             : process.env.HOST || 'localhost',
     templateEngine   : 'pug',
     // Session Cookie settings
     sessionCookie    : {
@@ -28,3 +28,4 @@ module.exports = {
     sessionCollection: 'sessions',
     favicon          : 'modules/core/client/img/brand/favicon (2).ico'
 };
+

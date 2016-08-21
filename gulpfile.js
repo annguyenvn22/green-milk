@@ -45,6 +45,12 @@ gulp.task('env:dev', function () {
     process.env.NODE_ENV = 'development';
 });
 
+// Set NODE_ENV to 'c9'
+gulp.task('env:dev', function () {
+    process.env.NODE_ENV = 'c9';
+});
+
+
 // Set NODE_ENV to 'production'
 gulp.task('env:prod', function () {
   process.env.NODE_ENV = 'production';
@@ -97,6 +103,13 @@ gulp.task('watch', function () {
 gulp.task('default', function (done) {
     runSequence('env:dev', 'sass', ['nodemon', 'watch'], done);
 });
+
+// Run the project in c9 clould ide
+gulp.task('c9', function (done) {
+    runSequence('env:dev', 'sass', ['nodemon', 'watch'], done);
+});
+
+
 
 // Lint project files and minify them into two production files.
 gulp.task('build', function (done) {
