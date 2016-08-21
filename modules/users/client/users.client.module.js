@@ -6,7 +6,7 @@
     app.registerModule('users.services');
 
     app.registerModule('users.admin');
-    app.registerModule('users.admin.routes');
+    app.registerModule('users.admin.routes', ['ui.router', 'core.admin.routes']);
     app.registerModule('users.admin.services');
 
 }(ApplicationConfiguration));

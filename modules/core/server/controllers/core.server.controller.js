@@ -22,7 +22,7 @@ exports.renderIndex = function (req, res) {
     res.render('modules/core/server/views/index', {
         user: safeUserObject
     });
-}
+};
 
 /**
  * Using with ui-router, defining 'templateUrl' is hard
@@ -31,12 +31,10 @@ exports.renderIndex = function (req, res) {
 exports.pugToHtml = function (req, res, next) {
     // load file system module
     var fs          = require('fs'),
-        path        = require('path'),
         _           = require('lodash'),
 
-        url         = req.originalUrl,
         requestFile = 'modules' + req.url + '.client.view.pug',
-        extName     = '.pug'
+        extName     = '.pug';
 
 
     // the requestFile isn't *.pug file
@@ -53,4 +51,4 @@ exports.pugToHtml = function (req, res, next) {
         res.render(requestFile);
     });
 
-}
+};
