@@ -24,7 +24,6 @@ html
         // AngularJS files
         each jsFile in jsFiles
             script(src=jsFile)
-
         // Live reload
-        - if (livereload)
+        - if (livereload && env == "development")
             script(type="text/javascript" src=host + ":35729/livereload.js")
