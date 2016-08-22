@@ -106,7 +106,7 @@ gulp.task('default', function (done) {
 
 // Run the project in c9 clould ide
 gulp.task('c9', function (done) {
-    runSequence('env:dev', 'sass', ['nodemon', 'watch'], done);
+    runSequence('env:c9', 'sass', ['nodemon', 'watch'], done);
 });
 
 

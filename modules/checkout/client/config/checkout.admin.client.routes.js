@@ -13,7 +13,10 @@
                 url: '/quan-ly-don-hang',
                 templateUrl: 'checkout/client/views/admin/checkout-management.admin',
                 controller: 'AdminCheckoutManagementController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                ncyBreadcrumb: {
+                    label: 'Quản lý đơn hàng'
+                }
             })
     }
 }());

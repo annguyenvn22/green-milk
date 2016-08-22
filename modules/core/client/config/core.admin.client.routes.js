@@ -11,8 +11,13 @@
         $stateProvider
             .state('admin', {
                 url: '/admin',
-                templateUrl: 'core/client/views/admin.template',
-                abstract: true
+                templateUrl: 'core/client/views/admin/admin.template',
+                controller: 'AdminTemplateController',
+                controllerAs: 'vm',
+                ncyBreadcrumb: {
+                    label: 'Admin'
+                }
+                // abstract: true
             })
     }
 }());

@@ -23,7 +23,8 @@ module.exports = {
                 'public/lib/angular-messages/angular-messages.js',
                 'public/lib/angular-ui-grid/ui-grid.min.js',
                 'public/lib/angular-cookies/angular-cookies.js',
-                'public/lib/a0-angular-storage/dist/angular-storage.js'
+                'public/lib/a0-angular-storage/dist/angular-storage.js',
+                'public/lib/angular-breadcrumb/release/angular-breadcrumb.js'
                 // endbower
             ],
             tests: ['public/lib/angular-mocks/angular-mocks.js']
