@@ -24,7 +24,9 @@ module.exports = {
                 'public/lib/angular-ui-grid/ui-grid.min.js',
                 'public/lib/angular-cookies/angular-cookies.js',
                 'public/lib/a0-angular-storage/dist/angular-storage.js',
-                'public/lib/angular-breadcrumb/release/angular-breadcrumb.js'
+                'public/lib/angular-breadcrumb/release/angular-breadcrumb.js',
+                'node_modules/chart.js/dist/Chart.js',
+                'node_modules/angular-chart.js/dist/angular-chart.js'
                 // endbower
             ],
             tests: ['public/lib/angular-mocks/angular-mocks.js']

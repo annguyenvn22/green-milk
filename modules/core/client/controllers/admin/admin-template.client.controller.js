@@ -22,27 +22,27 @@
             vm.navList = [
                 {
                     label: 'Quản lý đơn hàng',
-                    state: 'admin'
+                    state: 'admin.checkout-management'
                 },
                 {
                     label: 'Quản lý người dùng',
-                    state: 'admin'
+                    state: 'homepage'
                 },
                 {
                     label: 'Quản lý sữa',
-                    state: 'admin'
+                    state: 'homepage'
                 },
                 {
                     label: 'Quản lý bài viết',
-                    state: 'admin'
+                    state: 'homepage'
                 },
                 {
                     label: 'Quản lý liên hệ',
-                    state: 'admin'
+                    state: 'homepage'
                 },
                 {
                     label: 'Quản lý thống kê',
-                    state: 'admin'
+                    state: 'homepage'
                 }
             ];
          }

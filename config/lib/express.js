@@ -97,6 +97,7 @@ module.exports.initViewEngine = function (app) {
 module.exports.initModulesClientRoutes = function (app) {
     // Setting the app router and static folder
     app.use('/', express.static(path.resolve('./public')));
+    app.use('/', express.static(path.resolve('.')));
 
     // Globbing static routing
     config.folders.client.forEach(function (staticPath) {

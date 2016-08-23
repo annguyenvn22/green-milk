@@ -16,8 +16,8 @@
                 controllerAs: 'vm',
                 ncyBreadcrumb: {
                     label: 'Admin'
-                }
-                // abstract: true
+                },
+                abstract: true
             })
     }
 }());
