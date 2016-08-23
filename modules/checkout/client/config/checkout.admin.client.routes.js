@@ -18,5 +18,18 @@
                     label: 'Quản lý đơn hàng'
                 }
             })
+            .state('admin.checkout-management.detail', {
+                url: '/chi-tiet/:id',
+                views: {
+                    '@admin': {
+                        templateUrl: 'checkout/client/views/admin/checkout-detail',
+                        controller: 'CheckoutDetailController',
+                        controllerAs: 'vm',
+                    }
+                },
+                ncyBreadcrumb: {
+                    label: 'Chi tiết'
+                }
+            })
     }
 }());

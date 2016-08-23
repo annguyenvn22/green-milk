@@ -25,7 +25,7 @@
             vm.errorMsg = 'Sai Tên đăng nhập / Mật khẩu';
             vm.showErrorMsg = false;
         }
-
+        
         function login() {
             $http({
                 method: 'POST',
