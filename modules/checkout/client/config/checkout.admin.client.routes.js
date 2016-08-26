@@ -28,7 +28,7 @@
                     }
                 },
                 ncyBreadcrumb: {
-                    label: 'Chi tiết'
+                    label: 'Chi tiết đơn hàng'
                 }
             })
     }

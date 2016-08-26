@@ -1,0 +1,18 @@
+.row
+    .col-sm-6
+        p {{ vm.customerNameLabel }}
+            span ten khach hang
+        p {{ vm.customerAddressLabel }}
+            span dong nai
+        p {{ vm.customerPhoneNoLabel }}
+            span 0123
+        p {{ vm.totalMoneyLabel }}
+            span 20k
+    .col-sm-4
+        p {{ vm.statusLabel }}
+        select
+            option(value='resolved') Đã giao
+            option(value='pending') Chưa giao
+    .col-sm-2
+
+div(ui-grid='vm.gridOptions')
