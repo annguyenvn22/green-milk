@@ -1,8 +1,7 @@
 #admin-template
     .row
         .col-md-3.well
-            
-            
+
             // user information
             .row
                 .col-sm-6
@@ -11,8 +10,9 @@
                 p {{ vm.helloLabel }}
                 p {{ vm.admin.name }}
                 a(href='#!/admin') {{ vm.logoutLabel }}
-            
-            
+                a(href='/api/auth/logout') {{ vm.logoutLabel }}
+
+
             // navigations
             .list-group#admin-navigations
                 a.list-group-item(ng-repeat='nav in vm.navList' ui-sref='{{ nav.state }}' ui-sref-active='active') {{ nav.label }}

@@ -1,3 +1,4 @@
+// CUSTOMER INFORMATION
 .row
     .col-sm-6
         p {{ vm.customerNameLabel }}
@@ -8,11 +9,11 @@
             span 0123
         p {{ vm.totalMoneyLabel }}
             span 20k
-    .col-sm-4
-        p {{ vm.statusLabel }}
-        select
-            option(value='resolved') Đã giao
-            option(value='pending') Chưa giao
-    .col-sm-2
+    .col-sm-6
+        .form-group
+            label.label-control.col-sm-4(for="status-selection") {{ vm.statusLabel }}
+            .col-sm-8
+                select.form-control(ng-options="option.display for option in vm.options" ng-model="vm.opt")
 
-div(ui-grid='vm.gridOptions')
+// GRID
+.row(ui-grid='vm.gridOptions')
