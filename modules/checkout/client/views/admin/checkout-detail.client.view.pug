@@ -1,6 +1,6 @@
 // CUSTOMER INFORMATION
 .row
-    .col-sm-6
+    .col-lg-6
         p {{ vm.customerNameLabel }}
             span ten khach hang
         p {{ vm.customerAddressLabel }}
@@ -9,10 +9,10 @@
             span 0123
         p {{ vm.totalMoneyLabel }}
             span 20k
-    .col-sm-6
+    .col-lg-6
         .form-group
-            label.label-control.col-sm-4(for="status-selection") {{ vm.statusLabel }}
-            .col-sm-8
+            label.label-control.col-lg-4(for="status-selection") {{ vm.statusLabel }}
+            .col-lg-8
                 select.form-control(ng-options="option.display for option in vm.options" ng-model="vm.opt")
 
 // GRID

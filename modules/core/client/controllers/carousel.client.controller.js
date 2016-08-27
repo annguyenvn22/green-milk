@@ -27,7 +27,7 @@
         //////////////////////////////
 
         function openCartSingle() {
-            $state.go('cart.cart-single');
+            $state.go('home.cart.cart-single');
         }
     }
 }());

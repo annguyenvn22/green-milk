@@ -10,9 +10,9 @@
             
             // buttons
             .row
-                .col-md-6
+                .col-lg-6
                     div.text-left
                         button.btn.btn-default(ng-click='vm.backToStepTwo()' ng-disabled='vm.service.isEmpty()') {{ vm.backLabel }}
-                .col-md-6
+                .col-lg-6
                     div.text-right
                         button.btn.btn-success(ng-click='vm.goToStepFour()' ng-disabled='vm.service.isEmpty()') {{ vm.nextLabel }}

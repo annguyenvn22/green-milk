@@ -13,18 +13,18 @@
             //                     ABOUT
             /////////////////////////////////////////////////
 
-            .state('about', {
+            .state('home.about', {
                 abstract: true,
                 url: '/ve-green-milk',
                 templateUrl: 'cms/client/views/cms-template'
             })
-            .state('about.differences', {
+            .state('home.about.differences', {
                 url: '/su-khac-biet',
                 templateUrl: 'cms/client/views/about/differences',
                 controller: 'DifferencesController',
                 controllerAs: 'vm'
             })
-            .state('about.products', {
+            .state('home.about.products', {
                 url: '/san-pham',
                 templateUrl: 'cms/client/views/about/products',
                 controller: 'ProductsController',
@@ -35,47 +35,47 @@
             //                     PRODUCTS
             /////////////////////////////////////////////////
 
-            .state('products', {
+            .state('home.products', {
                 abstract: true,
                 url: '/san-pham',
                 templateUrl: 'cms/client/views/cms-template'
             })
-            .state('products.black-sesame', {
+            .state('home.products.black-sesame', {
                 url: '/sua-me-den',
                 templateUrl: 'cms/client/views/products/black-sesame',
                 controller: 'BackSesameController',
                 controllerAs: 'vm'
-            }).state('products.brown-rice', {
+            }).state('home.products.brown-rice', {
                 url: '/sua-gao-luc',
                 templateUrl: 'cms/client/views/products/brown-rice',
                 controller: 'BrownRiceController',
                 controllerAs: 'vm'
-            }).state('products.corn', {
+            }).state('home.products.corn', {
                 url: '/sua-bap',
                 templateUrl: 'cms/client/views/products/corn',
                 controller: 'CornController',
                 controllerAs: 'vm'
-            }).state('products.green-beans', {
+            }).state('home.products.green-beans', {
                 url: '/sua-dau-xanh',
                 templateUrl: 'cms/client/views/products/green-beans',
                 controller: 'GreenBeansController',
                 controllerAs: 'vm'
-            }).state('products.lotus', {
+            }).state('home.products.lotus', {
                 url: '/sua-hat-sen',
                 templateUrl: 'cms/client/views/products/lotus',
                 controller: 'LotusController',
                 controllerAs: 'vm'
-            }).state('products.peanuts', {
+            }).state('home.products.peanuts', {
                 url: '/sua-dau-phong',
                 templateUrl: 'cms/client/views/products/peanuts',
                 controller: 'PeanutsController',
                 controllerAs: 'vm'
-            }).state('products.red-beans', {
+            }).state('home.products.red-beans', {
                 url: '/sua-dau-do',
                 templateUrl: 'cms/client/views/products/red-beans',
                 controller: 'RedBeansController',
                 controllerAs: 'vm'
-            }).state('products.soy', {
+            }).state('home.products.soy', {
                 url: '/sua-dau-nanh',
                 templateUrl: 'cms/client/views/products/soy',
                 controller: 'SoyController',
@@ -86,18 +86,18 @@
             //                     ACTIVITIES
             /////////////////////////////////////////////////
 
-            .state('activities', {
+            .state('home.activities', {
                 abstract: true,
                 url: '/hoat-dong',
                templateUrl: 'cms/client/views/cms-template'
             })
-            .state('activities.green-milk-team', {
+            .state('home.activities.green-milk-team', {
                 url: '/green-milk-team',
                 templateUrl: 'cms/client/views/activities/green-milk-team',
                 controller: 'GreenMilkTeamController',
                 controllerAs: 'vm'
             })
-            .state('activities.news', {
+            .state('home.activities.news', {
                 url: '/tin-tuc',
                 templateUrl: 'cms/client/views/activities/news',
                 controller: 'NewsController',
@@ -108,13 +108,13 @@
             //              CO-OPERATE & RECRUITMENT
             /////////////////////////////////////////////////
 
-            .state('co-operate', {
+            .state('home.co-operate', {
                 url: '/hop-tac',
                 templateUrl: 'cms/client/views/co-operate',
                 controller: 'CoOperateController',
                 controllerAs: 'vm'
             })
-            .state('recruitment', {
+            .state('home.recruitment', {
                 url: '/tuyen-dung',
                 templateUrl: 'cms/client/views/recruitment',
                 controller: 'RecruitmentController',

@@ -1,10 +1,10 @@
 #cart-monthly-aside
     h1.text-center {{vm.header}}
     .row
-        .col-sm-8.hr
+        .col-lg-8.hr
         .row.milk-item(ng-repeat='milk in vm.milks track by milk.id')
-            .col-sm-7.text-center
+            .col-lg-7.text-center
                 img(ng-src='{{ milk.imgSmall }}', atl='{{ milk.name }}', ng-model='milk', data-drag='true', data-jqyoui-options="{revert: 'invalid', helper: 'clone'}", jqyoui-draggable="{index: {{ milk.id }}, animate: true, placeholder: 'keep'}")
                 p.text-center.milk-name {{ milk.name }}
-            .col-sm-5.text-center.milk-amount
+            .col-lg-5.text-center.milk-amount
                 input.form-control(type='number', ng-model='milk.amount', min='1', max='999')

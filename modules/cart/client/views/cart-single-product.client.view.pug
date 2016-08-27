@@ -1,6 +1,6 @@
 #cart-single-milk
     .row
-        .col-sm-4(ng-repeat='product in vm.products')
+        .col-lg-4.milk-square(ng-repeat='product in vm.products')
             .text-center.milk-img
                 img(ng-src='{{ product.imgBig }}')
             p.milk-name {{ product.name }}

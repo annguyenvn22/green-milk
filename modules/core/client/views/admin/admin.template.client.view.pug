@@ -1,12 +1,12 @@
 #admin-template
     .row
-        .col-md-3.well
+        .col-lg-3.well
 
             // user information
             .row
-                .col-sm-6
+                .col-lg-6
                     img.img-responsive.img-thumbnail(src='modules/core/client/img/default-avatar.jpg')
-                .col-sm-6
+                .col-lg-6
                 p {{ vm.helloLabel }}
                 p {{ vm.admin.name }}
                 a(href='#!/admin') {{ vm.logoutLabel }}
@@ -17,6 +17,6 @@
             .list-group#admin-navigations
                 a.list-group-item(ng-repeat='nav in vm.navList' ui-sref='{{ nav.state }}' ui-sref-active='active') {{ nav.label }}
 
-        .col-md-9
+        .col-lg-9
             div(ncy-breadcrumb)
             ui-view

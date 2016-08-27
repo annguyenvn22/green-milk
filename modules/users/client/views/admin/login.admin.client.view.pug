@@ -1,34 +1,34 @@
 .row#admin-login
-    div.text-center.col-md-8.col-md-offset-2
+    div.text-center.col-lg-8.col-lg-offset-2
         form.form-horizontal
             .well.text-left
                 h1 {{ vm.loginLabel }}
             
             .row(ng-if="vm.showErrorMsg")
-                .col-sm-6.col-sm-offset-3
+                .col-lg-6.col-lg-offset-3
                     div(uib-alert class='alert-danger' dismiss-on-timeout='5000' close='vm.dismissErrorMsg(this)')
                         p
                             strong {{ vm.errorMsg }}
 
             // USER-NAME
             .form-group
-                label.col-sm-3.control-label(for='admin-username') {{ vm.usernameLabel }}
-                .col-sm-8
+                label.col-lg-3.control-label(for='admin-username') {{ vm.usernameLabel }}
+                .col-lg-8
                     input.form-control#admin-username(type='text' ng-model='vm.admin.username')
         
             // PASSWORD
             .form-group
-                label.col-sm-3.control-label(for='admin-password') {{ vm.passwordLabel }}
-                .col-sm-8
+                label.col-lg-3.control-label(for='admin-password') {{ vm.passwordLabel }}
+                .col-lg-8
                     input.form-control#admin-password(type='password' ng-model='vm.admin.password')
 
             // REMEMBER-ME
             .form-group
-                .col-sm-9.col-sm-offset-3.text-left
+                .col-lg-9.col-lg-offset-3.text-left
                     input(type='checkbox' id='adminRememberMe')
                     label(for='adminRememberMe') {{ vm.rememberLabel }}
 
             // LOGIN
             .form-group
-                .col-sm-9.col-offset-3
+                .col-lg-9.col-lgfset-3
                     button.btn.btn-primary(ng-click="vm.login()") {{ vm.loginLabel }}
