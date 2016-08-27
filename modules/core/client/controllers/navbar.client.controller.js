@@ -18,11 +18,11 @@
                 subMenus: [
                     {
                         name : 'Sự Khác Biệt',
-                        state: 'about.differences'
+                        state: 'home.about.differences'
                     },
                     {
                         name : 'Sản Phẩm',
-                        state: 'about.products'
+                        state: 'home.about.products'
                     }
                 ]
             },
@@ -31,35 +31,35 @@
                 subMenus: [
                     {
                         name : 'Sữa Hạt Sen',
-                        state: 'products.lotus'
+                        state: 'home.products.lotus'
                     },
                     {
                         name : 'Sữa Bắp',
-                        state: 'products.corn'
+                        state: 'home.products.corn'
                     },
                     {
                         name : 'Sữa Đậu Nành',
-                        state: 'products.soy'
+                        state: 'home.products.soy'
                     },
                     {
                         name : 'Sữa Đậu Đỏ',
-                        state: 'products.red-beans'
+                        state: 'home.products.red-beans'
                     },
                     {
                         name : 'Sữa Đậu Phộng',
-                        state: 'products.peanuts'
+                        state: 'home.products.peanuts'
                     },
                     {
                         name : 'Sữa Đậu Xanh',
-                        state: 'products.green-beans'
+                        state: 'home.products.green-beans'
                     },
                     {
                         name : 'Sữa Mè Đen',
-                        state: 'products.black-sesame'
+                        state: 'home.products.black-sesame'
                     },
                     {
                         name : 'Sữa Gạo Lứt',
-                        state: 'products.brown-rice'
+                        state: 'home.products.brown-rice'
                     },
                     // TODO Hide this menu temporaryly
                     // {
@@ -73,17 +73,17 @@
                 subMenus: [
                     {
                         name : 'Đặt 1 Lần',
-                        state: 'cart.cart-single'
+                        state: 'home.cart.cart-single'
                     },
                     {
                         name : 'Đặt Theo Tháng',
-                        state: 'cart.cart-monthly'
+                        state: 'home.cart.cart-monthly'
                     }
                 ]
             },
             {
                 name    : 'Hợp Tác',
-                state   : 'co-operate',
+                state   : 'home.co-operate',
                 subMenus: []
             },
             {
@@ -91,17 +91,17 @@
                 subMenus: [
                     {
                         name : 'Green Milk Team',
-                        state: 'activities.green-milk-team'
+                        state: 'home.activities.green-milk-team'
                     },
                     {
                         name : 'Tin Tức',
-                        state: 'activities.news'
+                        state: 'home.activities.news'
                     }
                 ]
             },
             {
                 name    : 'Tuyển Dụng',
-                state   : 'recruitment',
+                state   : 'home.recruitment',
                 subMenus: []
             }
         ];

@@ -1,72 +1,72 @@
-// begin declare mixin 
+// begin declare mixin
 =grey-bg-body
-  margin-top: .5em
-  width: 92px
-  background-color: $light-grey
+    margin-top: .5em
+    width: 92px
+    background-color: $light-grey
 
-  .a-bottle-of-milk
-    float: left
-    width: 43px
-    position: relative
+    .a-bottle-of-milk
+        float: left
+        width: 43px
+        position: relative
 
     img
-      padding: .7em .5em .2em .5em
-      border: 1px solid $item-border-color
-      margin-left: .2em
-      margin-top: .7em
+        padding: .7em .5em .2em .5em
+        border: 1px solid $item-border-color
+        margin-left: .2em
+        margin-top: .7em
 
     span
-      background-color: $light-blue
-      position: absolute
-      bottom: 7em
-      left: .3em
+        background-color: $light-blue
+        position: absolute
+        bottom: 7em
+        left: .3em
 
     // by default, the remove icon will be not displayed
     i
-      display: none
-      cursor: pointer
+        display: none
+        cursor: pointer
 
     // when hover a bottle => display the remove icon
     &:hover
-      i
-        display: inline
-        position: absolute
-        top: .4em
-        right: -.3em
-        color: $light-red
-// end declare mixin            
+        i
+            display: inline
+            position: absolute
+            top: .4em
+            right: -.3em
+            color: $light-red
+// end declare mixin
 
 
 #cart-monthly-aweek
-  .week
-    overflow: auto
-    border: 1px dashed #959595
-    margin-bottom: 2em
-    padding-left: .6em
-    &:last-child
-      margin-bottom: 0
+    .week
+        overflow: auto
+        border: 1px dashed #959595
+        margin-bottom: 2em
+        padding-left: .6em
+        &:last-child
+            margin-bottom: 0
 
     .header
-      overflow: auto
-      // h2: Week 1/2/3/4
-      .col-sm-2
-        padding-left: 0
+        overflow: auto
+        // h2: Week 1/2/3/4
+        .header-label
+            padding-left: 0
 
         h2
-          color: $light-blue
+            color: $light-blue
 
-      // Check box and select
-      .col.sm-6.col-sm-offset-4.text-right
+    // Check box and select
+    .checkbox-and-select
         margin-right: 1em
         padding-top: 1.5em
         label
-          display: inline-block
-          position: relative
-          font-size: 1.2em
-          color: #4e4e4e
-          margin: 0 .5em
+            display: inline-block
+            position: relative
+            font-size: 1.2em
+            color: #4e4e4e
+            margin: 0 .5em
 
-          &:before
+        &:before
             cursor: pointer
             display: inline-block
             width: 1em
@@ -79,43 +79,43 @@
             box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.004)
 
         input[type="checkbox"]
-          display: none
+            display: none
 
-          &:checked + label:before
-            content: "\2713"
-            color: $light-blue
-            line-height: 1.25em
-            display: flex
-            justify-content: center
+            &:checked + label:before
+                content: "\2713"
+                color: $light-blue
+                line-height: 1.25em
+                display: flex
+                justify-content: center
 
         // select weeks
         select
-          cursor: pointer
-          &[disabled='disabled']
-            cursor: not-allowed
+            cursor: pointer
+            &[disabled='disabled']
+                cursor: not-allowed
 
     .day-of-week
-      float: left
-      margin-right: 1.5em
-      margin-bottom: 2em
+        float: left
+        margin-right: 1.5em
+        margin-bottom: 2em
 
-      &:last-child
+    &:last-child
         // sunday is no need margin-right
         margin-right: 0
 
-      .grey-bg-1, .grey-bg-2
-        height: $grey-bg-2-item
-        +grey-bg-body
-      .grey-bg-3, .grey-bg-4
-        height: $grey-bg-4-item
-        +grey-bg-body
-      .grey-bg-5, .grey-bg-6
-        height: $grey-bg-6-item
-        +grey-bg-body
-      .grey-bg-7, .grey-bg-8
-        height: $grey-bg-8-item
-        +grey-bg-body
+        .grey-bg-1, .grey-bg-2
+            height: $grey-bg-2-item
+            +grey-bg-body
+        .grey-bg-3, .grey-bg-4
+            height: $grey-bg-4-item
+            +grey-bg-body
+        .grey-bg-5, .grey-bg-6
+            height: $grey-bg-6-item
+            +grey-bg-body
+        .grey-bg-7, .grey-bg-8
+            height: $grey-bg-8-item
+            +grey-bg-body
 
-      // grey background contains milk bottles
-      .milk-container
-        margin-left: .3em
+        // grey background contains milk bottles
+        .milk-container
+            margin-left: .3em

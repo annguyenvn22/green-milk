@@ -1,4 +1,4 @@
-#product.row(ng-controller='ProductController as vm')
+.row#product(ng-controller='ProductController as vm')
     h1.text-center {{ vm.header }}
     .single-product(ng-repeat='product in vm.products track by product.id')
         img(ng-src='{{ product.img }}')

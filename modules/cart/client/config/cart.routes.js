@@ -9,10 +9,10 @@
 
     function configFn($stateProvider) {
         $stateProvider
-            .state('cart', {
-                url        : '/gio-hang',
+            .state('home.cart', {
+                url: '/gio-hang',
                 templateUrl: 'cart/client/views/cart',
-                abstract   : true
+                abstract: true
             });
     }
-}());
+} ());

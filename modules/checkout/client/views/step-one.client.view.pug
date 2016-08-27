@@ -4,7 +4,7 @@
     #checkout-step-one
         .content
             // left
-            .col-sm-7
+            .col-lg-7.authentication
                 h2 {{ vm.loginWithLabel }}
                 .text-center
                     input#facebookRad(type='radio', name='registerWith', checked='checked')
@@ -22,8 +22,8 @@
                     input.form-control.inputlg(type='text', placeholder='Enter password...')
                 .text-right
                     btn.btn.btn-default.btn-success.btn-lg(ng-click='vm.goToStepTwo()') {{ vm.loginLabel }}
-            // right
-            .col-sm-5
+            // right.registration
+            .col-lg-5
                 h4 {{ vm.createNewAccountLabel }}
                 btn.btn.btn-default.btn-success.btn-lg.btn-facebook {{ vm.registerWithFacebook }}
                 btn.btn.btn-default.btn-success.btn-lg.btn-google {{ vm.registerWithGoogle }}
