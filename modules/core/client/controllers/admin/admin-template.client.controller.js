@@ -15,6 +15,7 @@
         ////////////////
 
         function activate() {
+            adjustBodyElementPadding();
             vm.helloLabel = 'Xin chào,';
             vm.admin = {name: 'Admin'},
             vm.logoutLabel = 'Đăng xuất';
@@ -45,6 +46,12 @@
                     state: 'homepage'
                 }
             ];
-         }
+        }
+
+        // body element only padding top 10px
+        function adjustBodyElementPadding() {
+            jQuery('body').addClass('padding-top-admin-page');
+        }
+
     }
 })();

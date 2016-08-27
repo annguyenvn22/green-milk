@@ -15,8 +15,14 @@
         //////////////
 
         function activate() {
+            adjustBodyElementPadding();
             vm.navbarTemplate = 'core/client/views/navbar';
             vm.footerTemplate = 'core/client/views/footer';
+        }
+
+        // remove 10px padding top of body element
+        function adjustBodyElementPadding() {
+            jQuery('body').removeClass('padding-top-admin-page')
         }
     }
 }());
