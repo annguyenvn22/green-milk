@@ -1,9 +1,9 @@
 #cart-monthly-aweek
     .week(ng-repeat='week in vm.month')
         .header
-            .col-lg-2.header-label
+            .col-md-2.header-label
                 h2 Tuần {{ $index + 1 }}:
-            .col-lg-6.col-lg-offset-4.text-right.checkbox-and-select(ng-if='week.options.length > 0')
+            .col-md-6.col-md-offset-4.text-right.checkbox-and-select(ng-if='week.options.length > 0')
                 input(id='repeat-as-{{ $index }}', type='checkbox', ng-model='week.isCheckboxChecked')
                 label(for='repeat-as-{{ $index }}', ng-disabled='!week.isCheckboxChecked') Lặp lại như:
                 select(ng-model='week.copyOf', ng-change='vm.select($index)', ng-disabled='!week.isCheckboxChecked')

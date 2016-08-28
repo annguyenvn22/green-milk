@@ -57,7 +57,6 @@
 
     // Check box and select
     .checkbox-and-select
-        margin-right: 1em
         padding-top: 1.5em
         label
             display: inline-block
@@ -66,17 +65,17 @@
             color: #4e4e4e
             margin: 0 .5em
 
-        &:before
-            cursor: pointer
-            display: inline-block
-            width: 1em
-            height: 1em
-            border-radius: .2em
-            position: absolute
-            background-color: #f6f6f6
-            content: ""
-            left: -1.5em
-            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.004)
+            &:before
+                cursor: pointer
+                display: inline-block
+                width: 1em
+                height: 1em
+                border-radius: .2em
+                position: absolute
+                background-color: #f6f6f6
+                content: ""
+                left: -1.5em
+                box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.004)
 
         input[type="checkbox"]
             display: none
@@ -99,9 +98,10 @@
         margin-right: 1.5em
         margin-bottom: 2em
 
-    &:last-child
-        // sunday is no need margin-right
-        margin-right: 0
+        &:last-child
+            // sunday is no need margin-right
+            margin-right: 0
+            margin-bottom: 0
 
         .grey-bg-1, .grey-bg-2
             height: $grey-bg-2-item
