@@ -16,14 +16,21 @@
 
 
         function activate() {
-            vm.customerNameLabel = 'Tên khách hàng: ';
-            vm.customerAddressLabel = 'Địa chỉ: ';
-            vm.customerPhoneNoLabel = 'SĐT: ';
-            vm.totalMoneyLabel = 'Tổng tiền: ';
+            vm.customerNameLabel = 'Tên khách hàng ';
+            vm.customerAddressLabel = 'Địa chỉ ';
+            vm.customerPhoneNoLabel = 'SĐT ';
+            vm.totalMoneyLabel = 'Tổng tiền ';
             vm.statusLabel = 'Tình trạng';
             vm.saveLabel = 'Lưu';
             vm.cancelLabel = 'Hủy';
             vm.releaseDateLabel = 'Ngày giao';
+            vm.datepicker = {
+                isOpen: false,
+                format: 'dd/MM/yyyy',
+                closeText: 'Đóng',
+                currentText: 'Hôm nay',
+                clearText: "Xóa"
+            };
             vm.options = [
                 {display: 'Đã giao', value: 'resovled'},
                 {display: 'Chưa giao', value: 'pending'}
@@ -59,6 +66,33 @@
 
                 ]
             };
+        }
+
+        /**
+         * @return 'monthly' or 'single'
+         */
+        function classifiesCartType() {
+            // TODO based on $stateParams.id
+
+            return 'monthly';
+        }
+
+        function render() {
+
+        }
+
+        /**
+         * render detail for checkout type single
+         */
+        function renderSingleDetail() {
+
+        }
+
+        /**
+         * render detail for checkout type monthly
+         */
+        function renderMonthlyDetail() {
+
         }
     }
 }());

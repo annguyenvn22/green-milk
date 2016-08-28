@@ -5,7 +5,7 @@
         .content
             // left
             .col-lg-7.authentication
-                h2 {{ vm.loginWithLabel }}
+                h2#loginLabel {{ vm.loginWithLabel }}
                 .text-center
                     input#facebookRad(type='radio', name='registerWith', checked='checked')
                     label.facebook(for='facebookRad' ng-click='vm.callOAuth("/api/auth/facebook")')
@@ -15,15 +15,15 @@
                 .input-group
                     span.input-group-addon
                         i.fa.fa-user
-                    input.form-control.inputlg(type='text', placeholder='Enter username...')
+                    input.form-control.inputlg(type='text', placeholder='{{ vm.usernamePlaceholderLabel }}')
                 .input-group
                     span.input-group-addon
                         i.fa.fa-key
-                    input.form-control.inputlg(type='text', placeholder='Enter password...')
+                    input.form-control.inputlg(type='text', placeholder='{{ vm.passwordPlaceholderLabel }}')
                 .text-right
                     btn.btn.btn-default.btn-success.btn-lg(ng-click='vm.goToStepTwo()') {{ vm.loginLabel }}
-            // right.registration
-            .col-lg-5
+            // right
+            .col-lg-5.registration
                 h4 {{ vm.createNewAccountLabel }}
                 btn.btn.btn-default.btn-success.btn-lg.btn-facebook {{ vm.registerWithFacebook }}
                 btn.btn.btn-default.btn-success.btn-lg.btn-google {{ vm.registerWithGoogle }}

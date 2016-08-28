@@ -7,7 +7,7 @@
                 input#cash(type='radio', name='checkout', value='cash', checked='checked', ng-model='vm.payment', ng-click='vm.selectARadio()')
                 label(for='cash') {{ vm.cashPaymentLabel }}
             div
-                input#ebanking(type='radio', name='checkout', value='ebanking', ng-model='vm.payment', ng-click='vm.selectARadio()' ng-disabled="true")
+                input#ebanking(type='radio', name='checkout', value='ebanking', ng-model='vm.payment', ng-click='vm.selectARadio()')
                 label(for='ebanking') {{ vm.ebankingPaymentLabel }}
             
             

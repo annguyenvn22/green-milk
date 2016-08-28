@@ -1,20 +1,47 @@
 // CUSTOMER INFORMATION
-.row
-    .col-lg-6
-        p {{ vm.customerNameLabel }}
-            span ten khach hang
-        p {{ vm.customerAddressLabel }}
-            span dong nai
-        p {{ vm.customerPhoneNoLabel }}
-            span 0123
-        p {{ vm.totalMoneyLabel }}
-            span 20k
-    .col-lg-6
-        .form-group
-            label.label-control.col-lg-4(for='status-selection') {{ vm.statusLabel }}
-            .col-lg-8
-                select.form-control(ng-model='vm.statusDefault' ng-options='option.display for option in vm.options')
+.row#checkout-detail
+    form.form-horizontal
+        // LEFT SIDE
+        .col-lg-6
+            .form-group
+                label.control-label.col-lg-4(for='') {{ vm.customerNameLabel }}
+                .col-lg-8
+                    p.form-control ten khach hang
+            .form-group
+                label.control-label.col-lg-4(for='') {{ vm.customerAddressLabel }}
+                .col-lg-8
+                    p.form-control dong nai
+            .form-group
+                label.control-label.col-lg-4(for='') {{ vm.customerPhoneNoLabel }}
+                .col-lg-8
+                    p.form-control 0123456789
+            .form-group
+                label.control-label.col-lg-4(for='') {{ vm.totalMoneyLabel }}
+                .col-lg-8 
+                    p.form-control 20k
 
+
+        // RIGHT SIDE
+        .col-lg-6
+            .form-group
+                label.control-label.col-lg-3(for='status-selection') {{ vm.statusLabel }}
+                .col-lg-9
+                    select.form-control(id='status-selection' ng-model='vm.statusDefault' ng-options='option.display for option in vm.options')
+            .form-group
+                label.control-label.col-lg-3(for='status-selection') {{ vm.releaseDateLabel }}
+                .col-lg-9
+                    .input-group
+                        input.form-control(ng-model='vm.date' uib-datepicker-popup='{{ vm.datepicker.format }}' is-open='vm.datepicker.isOpen' type='text' current-text='{{ vm.datepicker.currentText }}' clear-text='{{ vm.datepicker.clearText }}' close-text='{{ vm.datepicker.closeText }}')
+                        span.input-group-btn
+                            button.btn.btn-default(ng-click='vm.datepicker.isOpen = !vm.datepicker.isOpen')
+                                i.fa.fa-calendar
+
+            
+            // SAVE AND CANCEL BUTTONS
+            .form-group
+                .col-lg-12.text-right
+                    button.btn.btn-primary(type='button') {{ vm.saveLabel }}
+                    button.btn.btn-default(type='button') {{ vm.cancelLabel}}
 // GRID
 .row
     .col-lg-12

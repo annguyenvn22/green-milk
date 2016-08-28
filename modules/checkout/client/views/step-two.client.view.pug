@@ -22,14 +22,17 @@
 
             .update-info#update-user-info(uib-collapse='vm.isCollapsed' expanded='vm.scrollDown()')
                 h3 {{ vm.updateAddress }}
-                .update-form
+                form.form-horizontal.update-form
                     // TODO use .form-group asshole
-                    .col-lg-8
-                        input.form-control.input(type='text' ng-model='vm.customerEdit.fullName')
-                    .col-lg-8
-                        input.form-control.input(type='text' ng-model='vm.customerEdit.phoneNumber')
-                    .col-lg-8
-                        textarea#address(name='address', cols='55', rows='8' ng-model='vm.customerEdit.address')
+                    .form-group
+                        .col-lg-8
+                            input.form-control.input(type='text' ng-model='vm.customerEdit.fullName')
+                    .form-group
+                        .col-lg-8
+                            input.form-control.input(type='text' ng-model='vm.customerEdit.phoneNumber')
+                    .form-group
+                        .col-lg-8
+                            textarea#address(name='address', cols='55', rows='8' ng-model='vm.customerEdit.address')
                     .col-lg-12.text-right
                         button.btn.btn-default(ng-click='vm.isCollapsed = true') {{ vm.cancelLabel }}
                         button.btn.btn-default.btn-primary(ng-click='vm.updateCustomerInfo()') {{ vm.updateLabel }}

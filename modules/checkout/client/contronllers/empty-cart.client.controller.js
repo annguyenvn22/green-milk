@@ -26,9 +26,9 @@
         function goToCart(type) {
             switch(type) {
                 case 'single':
-                    return $state.go('cart.cart-single');
+                    return $state.go('home.cart.cart-single');
                 case 'monthly':
-                    return $state.go('cart.cart-monthly');
+                    return $state.go('home.cart.cart-monthly');
             }
         }
     }

@@ -28,6 +28,8 @@
             vm.registerWithFacebook  = 'Đăng kí bằng facebook';
             vm.registerWithGoogle    = 'Đăng kí bằng google';
             vm.authError             = {};
+            vm.usernamePlaceholderLabel = 'Tên tài khoản';
+            vm.passwordPlaceholderLabel = 'Mật khẩu';
 
         }
 

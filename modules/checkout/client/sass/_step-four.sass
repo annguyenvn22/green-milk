@@ -3,37 +3,39 @@
     .content
         padding: 2em 15em
 
-    // just normal div, doensn't have id or name or class
-    div
-        label
-            font-family: $font-open-sans
-            font-size: 1.2em
+        div
+            label
+                font-family: $font-open-sans
+                font-size: 1.2em
         .bank-icons
             border: 1px dashed
             padding: 1.5em 0 1em 0
 
-        input[type="radio"]
-            display: none
-            &:checked + label:before
-                border: 2px dashed $light-blue
-        label
-            margin-left: 1.5em
-            &:before
-                border: 1px dashed $light-grey
-                display: inline-block
-                width: 50px
-                height: 50px
-                content: ''
-                cursor: pointer
+            input[type="radio"]
+                display: none
+                &:checked + label:before
+                    border: 2px dashed $light-blue
+            label
+                margin-left: 1.5em
+                &:before
+                    border: 1px dashed $light-grey
+                    display: inline-block
+                    width: 50px
+                    height: 50px
+                    content: ''
+                    cursor: pointer
 
-            &[for="agribank"]:before
-                background: url('/modules/cart/client/img/agribank.png') center no-repeat
-            &[for="vietcombank"]:before
-                background: url('/modules/cart/client/img/vietcombank.png') center no-repeat
-    .text-right
-        margin-top: 2em
-        .btn-success
-            border-radius: 15px
-            font-family: $font-open-sans
-            font-weight: bold
-                    
+                &[for="agribank"]:before
+                    background: url('/modules/cart/client/img/agribank.png') center no-repeat
+                &[for="vietcombank"]:before
+                    background: url('/modules/cart/client/img/vietcombank.png') center no-repeat
+        .text-right
+            margin-top: 2em
+            .btn-success
+                border-radius: 15px
+                font-family: $font-open-sans
+                font-weight: bold
+        
+        // incase alert-danger appear
+        .alert-danger
+            margin-top: 1em
