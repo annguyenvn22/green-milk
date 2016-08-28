@@ -11,9 +11,11 @@
             span 20k
     .col-lg-6
         .form-group
-            label.label-control.col-lg-4(for="status-selection") {{ vm.statusLabel }}
+            label.label-control.col-lg-4(for='status-selection') {{ vm.statusLabel }}
             .col-lg-8
-                select.form-control(ng-options="option.display for option in vm.options" ng-model="vm.opt")
+                select.form-control(ng-model='vm.statusDefault' ng-options='option.display for option in vm.options')
 
 // GRID
-.row(ui-grid='vm.gridOptions')
+.row
+    .col-lg-12
+        div(ui-grid='vm.gridOptions')

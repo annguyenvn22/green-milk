@@ -28,6 +28,7 @@
                 {display: 'Đã giao', value: 'resovled'},
                 {display: 'Chưa giao', value: 'pending'}
             ];
+            vm.statusDefault = vm.options[1];
             vm.gridOptions = {
                 showColumnFooter: true,
                 data: [],

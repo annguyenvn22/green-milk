@@ -19,7 +19,7 @@
             vm.helloLabel = 'Xin chào,';
             vm.admin = {name: 'Admin'},
             vm.logoutLabel = 'Đăng xuất';
-
+            vm.home = {label: 'Trở về trang chủ', state: 'home.index'};
             vm.navList = [
                 {
                     label: 'Quản lý đơn hàng',

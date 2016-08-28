@@ -2,6 +2,14 @@
     .row
         .col-lg-3.well
 
+            // back to homepage
+            .row#back-to-home
+                .col-lg-8.col-lg-offset-2
+                    a(ui-sref="{{ vm.home.state }}")
+                        i.fa.fa-home
+                        span &nbsp;
+                        span {{ vm.home.label }}
+
             // user information
             .row
                 .col-lg-6
@@ -9,7 +17,6 @@
                 .col-lg-6
                 p {{ vm.helloLabel }}
                 p {{ vm.admin.name }}
-                a(href='#!/admin') {{ vm.logoutLabel }}
                 a(href='/api/auth/logout') {{ vm.logoutLabel }}
 
 
