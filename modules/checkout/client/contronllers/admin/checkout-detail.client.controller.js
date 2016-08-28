@@ -5,12 +5,14 @@
         .module('checkout.admin')
         .controller('CheckoutDetailController', CheckoutDetailController);
 
-    CheckoutDetailController.$inject = ['$stateParams', 'uiGridConstants'];
+    CheckoutDetailController.$inject = ['$stateParams', 'uiGridConstants', 'CartMonthlyService', 'CartSingleService'];
 
-    function CheckoutDetailController($stateParams, uiGridConstants) {
+    function CheckoutDetailController($stateParams, uiGridConstants, CartMonthlyService, CartSingleService) {
         var vm = this;
 
         activate();
+
+        vm.classifiesCheckoutType = classifiesCheckoutType;
 
         /////////////
 
@@ -20,6 +22,31 @@
             vm.customerAddressLabel = 'Địa chỉ ';
             vm.customerPhoneNoLabel = 'SĐT ';
             vm.totalMoneyLabel = 'Tổng tiền ';
+            collectInfomation();
+            vm.service = CartMonthlyService;
+        }
+
+        /**
+         * @return 'monthly' or 'single'
+         */
+        function classifiesCheckoutType() {
+            // TODO based on $stateParams.id
+
+            return 'monthly';
+        }
+
+        function collectInfomation() {
+            if (angular.equals(classifiesCheckoutType(), 'single')) {
+                collectSingleInformation();
+            } else {
+                collectMonthlyInformation();
+            }
+        }
+
+        /**
+         * Collect detail for checkout type single
+         */
+        function collectSingleInformation() {
             vm.statusLabel = 'Tình trạng';
             vm.saveLabel = 'Lưu';
             vm.cancelLabel = 'Hủy';
@@ -69,30 +96,35 @@
         }
 
         /**
-         * @return 'monthly' or 'single'
+         * Collect detail for checkout type monthly
          */
-        function classifiesCartType() {
-            // TODO based on $stateParams.id
+        function collectMonthlyInformation() {
+            vm.gridOptions = {
+                showColumnFooter: true,
+                data: CartMonthlyService.transformMonth(CartMonthlyService.getMonth()),
+                showTreeExpandNoChildren: false,
+                columnDefs: [
+                    {
+                        field: 'name', displayName: 'Tên Sữa'
+                    },
+                    {
+                        field: 'amount', displayName: 'Số Lượng'
+                    },
+                    {
+                        field: 'price', displayName: 'Giá', cellTemplate: '<div>{{ row.entity.price | currency : "" : 0 }} đ</div>'
+                    },
+                    {
+                        name: 'totalPrice', displayName: 'Thành tiền', type: 'number', aggregationType: uiGridConstants.aggregationTypes.sum, cellTemplate: '<div>{{ row.treeLevel === 0 || row.treeLevel === 1 ?row.entity.price : row.entity.price * row.entity.amount  | currency : "" : 0 }} đ</div>', footerCellTemplate: '<div>Tổng Tiền: {{ grid.appScope.$parent.vm.service.totalMoney() | currency : "" : 0 }} đ</div>'
+                    },
+                    {
+                        name: 'status',
+                        displayName: 'Đã giao',
+                        width: '10%',
+                        cellTemplate: '<div><input type="checkbox" /></div>'
+                    }
 
-            return 'monthly';
-        }
-
-        function render() {
-
-        }
-
-        /**
-         * render detail for checkout type single
-         */
-        function renderSingleDetail() {
-
-        }
-
-        /**
-         * render detail for checkout type monthly
-         */
-        function renderMonthlyDetail() {
-
+                ]
+            };
         }
     }
 }());

@@ -10,7 +10,7 @@
             .form-group
                 label.control-label.col-lg-4(for='') {{ vm.customerAddressLabel }}
                 .col-lg-8
-                    p.form-control dong nai
+                    p.form-control#customerAddress dong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong nai
             .form-group
                 label.control-label.col-lg-4(for='') {{ vm.customerPhoneNoLabel }}
                 .col-lg-8
@@ -22,7 +22,7 @@
 
 
         // RIGHT SIDE
-        .col-lg-6
+        .col-lg-6(ng-if='vm.classifiesCheckoutType() === "single"')
             .form-group
                 label.control-label.col-lg-3(for='status-selection') {{ vm.statusLabel }}
                 .col-lg-9
@@ -45,4 +45,5 @@
 // GRID
 .row
     .col-lg-12
-        div(ui-grid='vm.gridOptions')
+        div(ui-grid='vm.gridOptions' ng-if='vm.classifiesCheckoutType() === "single"')
+        div(ui-grid='vm.gridOptions' ng-if='vm.classifiesCheckoutType() === "monthly"' ui-grid-tree-view )

@@ -1,5 +1,5 @@
 (function() {
-'use strict';
+    'use strict';
 
     angular
         .module('checkout')
@@ -63,7 +63,7 @@
         function getMonthlyGridOptions() {
             return {
                 showColumnFooter: true,
-                data: transformMonth(CartMonthlyService.getMonth()),
+                data: CartMonthlyService.transformMonth(CartMonthlyService.getMonth()),
                 showTreeExpandNoChildren: false,
                 columnDefs: [
                     {
@@ -83,73 +83,6 @@
             };
         }
 
-
-        /**
-         * Transfrom *month* object from "tree" structure to "array" structure
-         * Because ui.grid's TreeView display base on array and it's $$treeLevel property
-         */
-        function transformMonth(month) {
-            var data = [];
-            
-            // interating weeks
-            for (var i = 0, _week; i < month.length; i++) {
-                _week = month[i];
-                var week = {
-                    $$treeLevel: 0,
-                    name: 'Tuần ' + (i + 1),
-                    amount: CartMonthlyService.totalWeekAmount(_week),
-                    price: CartMonthlyService.totalWeekMoney(_week)
-                };
-                data.push(week);
-
-                // iteration days in a week
-                for (var _day in _week) {
-                    if (angular.isDefined(_week[_day]) && angular.isDefined(_week[_day].bottles)) {
-                        var day = {
-                            $$treeLevel: 1,
-                            name: translateToVietnamese(_day),
-                            amount: CartMonthlyService.totalDayAmount(_week[_day]),
-                            price: CartMonthlyService.totalDayMoney(_week[_day])
-                        }
-                        data.push(day);
-
-                        // pushing bottles
-                        angular.forEach(_week[_day].bottles, function(_bottle) {
-                            var bottle = {
-                                $$treeLevel: 2,
-                                name: _bottle.name,
-                                price: _bottle.price,
-                                amount: _bottle.amount
-                            }
-                            data.push(bottle);
-                        });
-
-                    }
-                }
-            }
-
-            return data;
-        }
-
-        function translateToVietnamese(day) {
-            switch(day) {
-                case 'monday':
-                    return 'Thứ Hai';
-                case 'tuesday':
-                    return 'Thứ Ba';
-                case 'wednesday':
-                    return 'Thứ Tư';
-                case 'thursday':
-                    return 'Thứ Năm';
-                case 'friday':
-                    return 'Thứ Sáu';
-                case 'saturday':
-                    return 'Thứ Bảy';
-                case 'sunday':
-                    return 'Chủ Nhật';
-            }
-        }
-
         function backToStepTwo() {
             $state.go('^.step-two');
         }
@@ -158,5 +91,5 @@
             $state.go('^.step-four');
         }
 
-    } // end StepThreeController
+    } // End: StepThreeController
 })();
