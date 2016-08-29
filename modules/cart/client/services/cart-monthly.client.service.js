@@ -303,7 +303,8 @@
                     $$treeLevel: 0,
                     name: 'Tuần ' + (i + 1),
                     amount: this.totalWeekAmount(_week),
-                    price: this.totalWeekMoney(_week)
+                    price: this.totalWeekMoney(_week),
+                    status: ''
                 };
                 data.push(week);
 
@@ -314,7 +315,8 @@
                             $$treeLevel: 1,
                             name: translateToVietnamese(_day),
                             amount: this.totalDayAmount(_week[_day]),
-                            price: this.totalDayMoney(_week[_day])
+                            price: this.totalDayMoney(_week[_day]),
+                            status: _week[_day].status || 'none'
                         }
                         data.push(day);
 

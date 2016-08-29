@@ -21,7 +21,7 @@
                     p.form-control 20k
 
 
-        // RIGHT SIDE
+        // RIGHT SIDE ------ SINGLE
         .col-lg-6(ng-if='vm.classifiesCheckoutType() === "single"')
             .form-group
                 label.control-label.col-lg-3(for='status-selection') {{ vm.statusLabel }}
@@ -42,6 +42,14 @@
                 .col-lg-12.text-right
                     button.btn.btn-primary(type='button') {{ vm.saveLabel }}
                     button.btn.btn-default(type='button') {{ vm.cancelLabel}}
+
+        // RIGHT SIDE ------ MONTHLY
+        .col-lg-6(ng-if='vm.classifiesCheckoutType() === "monthly"')
+            .form-group
+                label.control-label.col-lg-3 {{ vm.statusLabel }}
+                .col-lg-9
+                    p.form-control hello
+
 // GRID
 .row
     .col-lg-12

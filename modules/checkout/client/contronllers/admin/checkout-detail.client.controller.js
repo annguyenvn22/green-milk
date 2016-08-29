@@ -5,9 +5,9 @@
         .module('checkout.admin')
         .controller('CheckoutDetailController', CheckoutDetailController);
 
-    CheckoutDetailController.$inject = ['$stateParams', 'uiGridConstants', 'CartMonthlyService', 'CartSingleService'];
+    CheckoutDetailController.$inject = ['$stateParams', 'uiGridConstants', 'CartMonthlyService', 'CartSingleService', 'CheckoutService'];
 
-    function CheckoutDetailController($stateParams, uiGridConstants, CartMonthlyService, CartSingleService) {
+    function CheckoutDetailController($stateParams, uiGridConstants, CartMonthlyService, CartSingleService, CheckoutService) {
         var vm = this;
 
         activate();
@@ -30,9 +30,10 @@
          * @return 'monthly' or 'single'
          */
         function classifiesCheckoutType() {
-            // TODO based on $stateParams.id
+            // get from server
+            vm.checkout = CheckoutService.queryMock();
 
-            return 'monthly';
+            return vm.checkout.type;
         }
 
         function collectInfomation() {
@@ -101,7 +102,7 @@
         function collectMonthlyInformation() {
             vm.gridOptions = {
                 showColumnFooter: true,
-                data: CartMonthlyService.transformMonth(CartMonthlyService.getMonth()),
+                data: CartMonthlyService.transformMonth(vm.checkout.cart),
                 showTreeExpandNoChildren: false,
                 columnDefs: [
                     {
@@ -114,13 +115,18 @@
                         field: 'price', displayName: 'Giá', cellTemplate: '<div>{{ row.entity.price | currency : "" : 0 }} đ</div>'
                     },
                     {
-                        name: 'totalPrice', displayName: 'Thành tiền', type: 'number', aggregationType: uiGridConstants.aggregationTypes.sum, cellTemplate: '<div>{{ row.treeLevel === 0 || row.treeLevel === 1 ?row.entity.price : row.entity.price * row.entity.amount  | currency : "" : 0 }} đ</div>', footerCellTemplate: '<div>Tổng Tiền: {{ grid.appScope.$parent.vm.service.totalMoney() | currency : "" : 0 }} đ</div>'
+                        name: 'totalPrice', 
+                        displayName: 'Thành tiền', 
+                        type: 'number', 
+                        aggregationType: uiGridConstants.aggregationTypes.sum, 
+                        cellTemplate: '<div>{{ row.treeLevel === 0 || row.treeLevel === 1 ?row.entity.price : row.entity.price * row.entity.amount  | currency : "" : 0 }} đ</div>', 
+                        footerCellTemplate: '<div>Tổng Tiền: {{ grid.appScope.$parent.vm.service.totalMoney() | currency : "" : 0 }} đ</div>'
                     },
                     {
-                        name: 'status',
+                        field: 'status',
                         displayName: 'Đã giao',
                         width: '10%',
-                        cellTemplate: '<div><input type="checkbox" /></div>'
+                        cellTemplate: '<div><input ng-if="COL_FIELD" type="checkbox" ng-model="MODEL_COL_FIELD" ng-true-value="\'resolved\'" ng-false-value="\'pending\'" /></div>'
                     }
 
                 ]
