@@ -27,23 +27,23 @@
                 },
                 {
                     label: 'Quản lý người dùng',
-                    state: 'homepage'
+                    state: 'admin.user-management'
                 },
                 {
                     label: 'Quản lý sữa',
-                    state: 'homepage'
+                    state: 'admin.milk-management'
                 },
                 {
                     label: 'Quản lý bài viết',
-                    state: 'homepage'
+                    state: 'admin.cms-management'
                 },
                 {
                     label: 'Quản lý liên hệ',
-                    state: 'homepage'
+                    state: 'admin.contact-management'
                 },
                 {
                     label: 'Quản lý thống kê',
-                    state: 'homepage'
+                    state: 'home'
                 }
             ];
         }

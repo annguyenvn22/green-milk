@@ -50,7 +50,7 @@
                         field: 'amount', displayName: 'Số Lượng'
                     },
                     {
-                        field: 'price', displayName: 'Giá', type: 'number', cellTemplate: '<div>{{ grid.appScope.$parent.vm.CartMonthlyService.totalWeekMoney() | currency : "" : 0 }} đ</div>'
+                        field: 'price', displayName: 'Giá', type: 'number', cellTemplate: '<div>{{ grid.appScope.$parent.vm.CartSingleService.totalWeekMoney() | currency : "" : 0 }} đ</div>'
                     },
                     {
                         name: 'totalPrice', displayName: 'Thành tiền', type: 'number', aggregationType: uiGridConstants.aggregationTypes.sum, cellTemplate: '<div>{{ row.entity.price * row.entity.amount  | currency : "" : 0 }} đ</div>', footerCellTemplate: '<div>Tổng Tiền: {{ grid.appScope.$parent.vm.service.totalMoney() | currency : "" : 0 }} đ</div>'

@@ -7,7 +7,8 @@ module.exports = {
                 // bower:css
                 'public/lib/bootstrap/dist/css/bootstrap.css',
                 'public/lib/components-font-awesome/css/font-awesome.css',
-                'public/lib/angular-ui-grid/ui-grid.css'
+                'public/lib/angular-ui-grid/ui-grid.css',
+                'public/lib/angular-bootstrap/ui-bootstrap-csp.css'
                 // endbower
             ],
             js   : [

@@ -19,6 +19,15 @@
                    }
                }
                
-            });
+            })
+            .state('admin.user-management', {
+                url: '/quan-ly-nguoi-dung',
+                templateUrl: 'users/client/views/admin/users-management',
+                controller: 'UserManagementController',
+                controllerAs: 'vm',
+                ncyBreadcrumb: {
+                    label: 'Quản lý người dùng'
+                }
+            })
     }
 }());

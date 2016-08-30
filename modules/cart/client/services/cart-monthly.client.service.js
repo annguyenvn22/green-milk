@@ -20,6 +20,8 @@
         this.totalWeekAmount = totalWeekAmount;
         this.totalDayAmount  = totalDayAmount;
         this.transformMonth  = transformMonth;
+        this.translateToVietnamese = translateToVietnamese;
+        this.totalAmount = totalAmount;
 
         // the default value of class .grey-bg
         var greyBackgroundDefault = 'grey-bg-2';
@@ -238,9 +240,12 @@
             return empty;
         }
 
-        function totalMoney() {
+        function totalMoney(externalMonth) {
+
+            var monthArray = externalMonth || month;
+
             var totalMoney = 0;
-            angular.forEach(month, function iterateMonth(week, index, month) {
+            angular.forEach(monthArray, function iterateMonth(week, index, monthArray) {
                 if (angular.isObject(week) && !angular.isArray(week)) {
                     totalMoney += totalWeekMoney(week);
                 }
@@ -268,6 +273,21 @@
 
             return totalMoney;
         }
+
+        function totalAmount(externalMonth) {
+
+            var monthArray = externalMonth || month;
+
+            var totalAmount = 0;
+            angular.forEach(monthArray, function iterateMonth(week, index, monthArray) {
+                if (angular.isObject(week) && !angular.isArray(week)) {
+                    totalAmount += totalWeekAmount(week);
+                }
+            });
+
+            return totalAmount;
+        }
+
 
         function totalWeekAmount(week) {
             var totalAmount = 0;

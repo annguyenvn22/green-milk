@@ -14,9 +14,6 @@
                 templateUrl: 'core/client/views/admin/admin.template',
                 controller: 'AdminTemplateController',
                 controllerAs: 'vm',
-                ncyBreadcrumb: {
-                    label: 'Admin'
-                },
                 abstract: true
             })
     }
