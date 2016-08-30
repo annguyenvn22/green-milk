@@ -34,16 +34,15 @@
 
 // when user scrolled down, navar background-color
 // will be change here
-.scrolled
-    .navbar-fixed-top
-        background-color: $dark-blue
-        .navbar-brand
-            // the big green milk on the left
-            color: white
-        .navbar-nav
-          & li
+.scrolled.navbar-fixed-top
+    background-color: $dark-blue
+    .navbar-brand
+        // the big green milk on the left
+        color: white
+    .navbar-nav
+        &>li
             .dropdown-menu
-              left: 0
-            & a
-              // menus that have no sub menus
-              color: white
+                left: 0
+            &>a
+                // menus that have no sub menus
+                color: white

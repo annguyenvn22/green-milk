@@ -341,7 +341,7 @@
                         data.push(day);
 
                         // pushing bottles
-                        angular.forEach(_week[_day].bottles, function(_bottle) {
+                        angular.forEach(_week[_day].bottles, _bottle => {
                             var bottle = {
                                 $$treeLevel: 2,
                                 name: _bottle.name,
