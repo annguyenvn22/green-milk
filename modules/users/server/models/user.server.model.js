@@ -3,12 +3,12 @@
 /**
  * Module dependencies
  */
-var mongoose         = require('mongoose'),
-    Schema           = mongoose.Schema,
-    crypto           = require('crypto'),
-    validator        = require('validator'),
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema,
+    crypto = require('crypto'),
+    validator = require('validator'),
     generatePassword = require('generate-password'),
-    owasp            = require('owasp-password-strength-test');
+    owasp = require('owasp-password-strength-test');
 
 /**
  * A Validation function for local strategy properties
@@ -21,84 +21,84 @@ var validateLocalStrategyProperty = function (property) {
  * A Validation function for local strategy email
  */
 var validateLocalStrategyEmail = function (email) {
-    return ((this.provider !== 'local' && !this.updated) || validator.isEmail(email, {require_tld: false}));
+    return ((this.provider !== 'local' && !this.updated) || validator.isEmail(email, { require_tld: false }));
 };
 
 /**
  * User Schema
  */
 var UserSchema = new Schema({
-    firstName              : {
-        type    : String,
-        trim    : true,
-        default : '',
+    firstName: {
+        type: String,
+        trim: true,
+        default: '',
         validate: [validateLocalStrategyProperty, 'Please fill in your first name']
     },
-    lastName               : {
-        type    : String,
-        trim    : true,
-        default : '',
+    lastName: {
+        type: String,
+        trim: true,
+        default: '',
         validate: [validateLocalStrategyProperty, 'Please fill in your last name']
     },
-    displayName            : {
+    displayName: {
         type: String,
         trim: true
     },
-    email                  : {
-        type     : String,
-        index    : {
+    email: {
+        type: String,
+        index: {
             unique: true,
             sparse: true // For this to work on a previously indexed field, the index must be dropped & the application restarted.
         },
         lowercase: true,
-        trim     : true,
-        default  : '',
-        validate : [validateLocalStrategyEmail, 'Please fill a valid email address']
+        trim: true,
+        default: '',
+        validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
     },
-    username               : {
-        type     : String,
-        unique   : 'Username already exists',
-        required : 'Please fill in a username',
+    username: {
+        type: String,
+        unique: 'Username already exists',
+        required: 'Please fill in a username',
         lowercase: true,
-        trim     : true
+        trim: true
     },
-    password               : {
-        type   : String,
+    password: {
+        type: String,
         default: ''
     },
-    salt                   : {
+    salt: {
         type: String
     },
-    profileImageURL        : {
-        type   : String,
+    profileImageURL: {
+        type: String,
         default: 'modules/users/client/img/profile/default.png'
     },
-    provider               : {
-        type    : String,
+    provider: {
+        type: String,
         required: 'Provider is required'
     },
-    providerData           : {},
+    providerData: {},
     additionalProvidersData: {},
-    roles                  : {
-        type    : [{
+    roles: {
+        type: [{
             type: String,
             enum: ['user', 'admin']
         }],
-        default : ['user'],
+        default: ['user'],
         required: 'Please provide at least one role'
     },
-    updated                : {
+    updated: {
         type: Date
     },
-    created                : {
-        type   : Date,
+    created: {
+        type: Date,
         default: Date.now
     },
     /* For reset password */
-    resetPasswordToken     : {
+    resetPasswordToken: {
         type: String
     },
-    resetPasswordExpires   : {
+    resetPasswordExpires: {
         type: Date
     }
 });
@@ -108,7 +108,7 @@ var UserSchema = new Schema({
  */
 UserSchema.pre('save', function (next) {
     if (this.password && this.isModified('password')) {
-        this.salt     = crypto.randomBytes(16).toString('base64');
+        this.salt = crypto.randomBytes(16).toString('base64');
         this.password = this.hashPassword(this.password);
     }
 
@@ -152,7 +152,7 @@ UserSchema.methods.authenticate = function (password) {
  * Find possible not used username
  */
 UserSchema.statics.findUniqueUsername = function (username, suffix, callback) {
-    var _this            = this;
+    var _this = this;
     var possibleUsername = username.toLowerCase() + (suffix || '');
 
     _this.findOne({
@@ -177,7 +177,7 @@ UserSchema.statics.findUniqueUsername = function (username, suffix, callback) {
  */
 UserSchema.statics.generateRandomPassphrase = function () {
     return new Promise(function (resolve, reject) {
-        var password            = '';
+        var password = '';
         var repeatingCharacters = new RegExp('(.)\\1{2,}', 'g');
 
         // iterate until the we have a valid passphrase
@@ -185,10 +185,10 @@ UserSchema.statics.generateRandomPassphrase = function () {
         while (password.length < 20 || repeatingCharacters.test(password)) {
             // build the random password
             password = generatePassword.generate({
-                length                  : Math.floor(Math.random() * (20)) + 20, // randomize length between 20 and 40 characters
-                numbers                 : true,
-                symbols                 : false,
-                uppercase               : true,
+                length: Math.floor(Math.random() * (20)) + 20, // randomize length between 20 and 40 characters
+                numbers: true,
+                symbols: false,
+                uppercase: true,
                 excludeSimilarCharacters: true
             });
 

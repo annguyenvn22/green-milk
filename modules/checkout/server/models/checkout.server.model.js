@@ -15,6 +15,17 @@ var CheckoutSchema = new Schema({
         type   : Date,
         default: Date.now
     },
+    status: {
+        type: [{
+            type: String,
+            enum: ['resolved', 'pending', 'rejected'],
+            default: 'pending'
+        }]
+    },
+    user: {
+        type: Schema.ObjectId,
+        ref: 'User'
+    },
     cart   : []
 });
 
