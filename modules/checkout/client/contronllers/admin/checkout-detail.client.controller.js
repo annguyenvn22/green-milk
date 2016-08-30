@@ -14,6 +14,7 @@
 
         vm.classifiesCheckoutType = classifiesCheckoutType;
         vm.rejectCheckout = rejectCheckout;
+        vm.CartMonthlyService = CartMonthlyService;
 
         /////////////
 
@@ -105,6 +106,10 @@
          * Collect detail for checkout type monthly
          */
         function collectMonthlyInformation() {
+            vm.unit = 'chai';
+            vm.resolvedBottleLabel = 'Đã giao';
+            vm.resolvedBottles = CheckoutAdminService.totalResovledMilkBottles(vm.checkout.cart); 
+            vm.totalBottles = CheckoutAdminService.totalAmount(vm.checkout.cart)
             vm.CheckoutAdminService = CheckoutAdminService;
             vm.gridOptions = {
                 showColumnFooter: true,

@@ -65,6 +65,20 @@
                     .form-group
                         label.text-info.control-label.col-lg-3 {{ vm.statusLabel }}
                     
+                    // PROGRESS BAR
+                    .form-group
+                        .col-lg-10.col-lg-offset-1
+                            uib-progressbar.progress-striped.active(type='info' max='vm.totalBottles' value='vm.resolvedBottles')
+                                span {{ vm.resolvedBottleLabel }}
+                                span &nbsp;
+                                span {{ vm.resolvedBottles }}
+                                span &nbsp;
+                                span {{ vm.unit }}
+                                span &nbsp;
+                                span /
+                                span &nbsp;
+                                span {{ vm.totalBottles }}
+
                     // DRAW DAY OF WEEK AND STATUS: RESOVLED/PENDING
                     .form-group
                         label.text-info.col-lg-3(ng-repeat='week in vm.checkout.cart track by $id(week)')
@@ -74,14 +88,16 @@
                             .form-group
                                 label.col-lg-12(ng-repeat='(dayName, dateObject) in week' ng-if='dateObject.bottles && dateObject.bottles.length > 0')
                                     h6(ng-switch='dateObject.status')
-                                        span(ng-switch-when='resolved')
-                                            i.fa.fa-check-square-o.text-success
+                                        span.text-success(ng-switch-when='resolved')
+                                            i.fa.fa-check-square-o
                                             span &nbsp;
-                                            span.text-success {{ vm.service.translateToVietnamese(dayName) }}
-                                        span(ng-switch-default)
-                                            i.fa.fa-square-o.text-muted
+                                            span {{ vm.CartMonthlyService.translateToVietnamese(dayName) }}
+                                        span.text-muted(ng-switch-default)
+                                            i.fa.fa-square-o
                                             span &nbsp;
-                                            span.text-muted {{ vm.service.translateToVietnamese(dayName) }}
+                                            span {{ vm.CartMonthlyService.translateToVietnamese(dayName) }}
+
+
 // GRID
 .row
     .col-lg-12
