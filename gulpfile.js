@@ -113,7 +113,8 @@ gulp.task('c9', function (done) {
 
 // Lint project files and minify them into two production files.
 gulp.task('build', function (done) {
-  runSequence('env:dev', ['uglify', 'cssmin', 'imagemin'], done);
+//   runSequence('env:dev', ['uglify', 'cssmin', 'imagemin'], done);
+  runSequence('env:dev', ['cssmin', 'imagemin'], done);
 });
 
 
