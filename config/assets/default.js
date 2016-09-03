@@ -48,9 +48,13 @@ module.exports = {
         ],
         img  : [
             'modules/**/*/img/**/*.jpg',
+            'modules/**/*/img/**/*.JPG',
             'modules/**/*/img/**/*.png',
+            'modules/**/*/img/**/*.PNG',
             'modules/**/*/img/**/*.gif',
-            'modules/**/*/img/**/*.svg'
+            'modules/**/*/img/**/*.GIF',
+            'modules/**/*/img/**/*.svg',
+            'modules/**/*/img/**/*.SVG'
         ],
         views: ['modules/*/client/views/**/*.pug']
     },

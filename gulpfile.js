@@ -56,6 +56,11 @@ gulp.task('env:prod', function () {
   process.env.NODE_ENV = 'production';
 });
 
+// Set NODE_ENV to 'production-localhost'
+gulp.task('env:prod-local', function () {
+  process.env.NODE_ENV = 'production-localhost';
+});
+
 
 // JS minifying task
 gulp.task('uglify', function () {
@@ -113,12 +118,16 @@ gulp.task('c9', function (done) {
 
 // Lint project files and minify them into two production files.
 gulp.task('build', function (done) {
-//   runSequence('env:dev', ['uglify', 'cssmin', 'imagemin'], done);
-  runSequence('env:dev', ['cssmin', 'imagemin'], done);
+  runSequence('env:dev', ['uglify', 'cssmin', 'imagemin'], done);
 });
 
 
 // Run the project in production mode
 gulp.task('prod', function (done) {
   runSequence('build', 'env:prod', ['nodemon', 'watch'], done);
+});
+
+// Run the project in production mode
+gulp.task('prod-local', function (done) {
+  runSequence('build', 'env:prod-local', ['nodemon', 'watch'], done);
 });
