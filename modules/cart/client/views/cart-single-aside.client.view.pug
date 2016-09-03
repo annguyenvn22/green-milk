@@ -2,17 +2,17 @@
     #cart-logo.text-center
         img(ng-src='{{ vm.logo.img }}' alt='{{ vm.logo.alt }}')
     .row
-        .col-sm-8.hr
+        .col-lg-8.hr
         .cart-empty(ng-if='vm.products.length == 0')
     .row.milk-item(ng-repeat='product in vm.products')
-        .col-sm-7.text-center
+        .col-lg-7.text-center
             img(ng-src='{{ product.imgSmall }}', atl='{{ product.name }}')
             p.text-center.milk-name {{ product.name }}
-        .col-sm-5.text-center.milk-amount
+        .col-lg-5.text-center.milk-amount
             input.form-control(type='number', ng-model='product.amount', min='1', max='999')
             span.glyphicon.glyphicon-remove.milk-remove(ng-click='vm.remove(product)')
     .row
-        .col-sm-10.col-sm-offset-2.hr
+        .col-lg-10.col-lg-offset-2.hr
     h1.text-right.total-price {{ vm.total }}
     h1.text-right.price {{ vm.CartSingleService.totalMoney() | currency : '' : 0 }} đ
     .text-center

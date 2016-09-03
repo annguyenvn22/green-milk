@@ -45,9 +45,20 @@ gulp.task('env:dev', function () {
     process.env.NODE_ENV = 'development';
 });
 
+// Set NODE_ENV to 'c9'
+gulp.task('env:c9', function () {
+    process.env.NODE_ENV = 'c9';
+});
+
+
 // Set NODE_ENV to 'production'
 gulp.task('env:prod', function () {
   process.env.NODE_ENV = 'production';
+});
+
+// Set NODE_ENV to 'production-localhost'
+gulp.task('env:prod-local', function () {
+  process.env.NODE_ENV = 'production-localhost';
 });
 
 
@@ -98,6 +109,13 @@ gulp.task('default', function (done) {
     runSequence('env:dev', 'sass', ['nodemon', 'watch'], done);
 });
 
+// Run the project in c9 clould ide
+gulp.task('c9', function (done) {
+    runSequence('env:c9', 'sass', ['nodemon', 'watch'], done);
+});
+
+
+
 // Lint project files and minify them into two production files.
 gulp.task('build', function (done) {
   runSequence('env:dev', ['uglify', 'cssmin', 'imagemin'], done);
@@ -107,4 +125,9 @@ gulp.task('build', function (done) {
 // Run the project in production mode
 gulp.task('prod', function (done) {
   runSequence('build', 'env:prod', ['nodemon', 'watch'], done);
+});
+
+// Run the project in production mode
+gulp.task('prod-local', function (done) {
+  runSequence('build', 'env:prod-local', ['nodemon', 'watch'], done);
 });

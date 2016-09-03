@@ -7,7 +7,8 @@ module.exports = {
                 // bower:css
                 'public/lib/bootstrap/dist/css/bootstrap.css',
                 'public/lib/components-font-awesome/css/font-awesome.css',
-                'public/lib/angular-ui-grid/ui-grid.css'
+                'public/lib/angular-ui-grid/ui-grid.css',
+                'public/lib/angular-bootstrap/ui-bootstrap-csp.css'
                 // endbower
             ],
             js   : [
@@ -23,7 +24,10 @@ module.exports = {
                 'public/lib/angular-messages/angular-messages.js',
                 'public/lib/angular-ui-grid/ui-grid.min.js',
                 'public/lib/angular-cookies/angular-cookies.js',
-                'public/lib/a0-angular-storage/dist/angular-storage.js'
+                'public/lib/a0-angular-storage/dist/angular-storage.js',
+                'public/lib/angular-breadcrumb/release/angular-breadcrumb.js',
+                'node_modules/chart.js/dist/Chart.js',
+                'node_modules/angular-chart.js/dist/angular-chart.js'
                 // endbower
             ],
             tests: ['public/lib/angular-mocks/angular-mocks.js']
@@ -44,9 +48,13 @@ module.exports = {
         ],
         img  : [
             'modules/**/*/img/**/*.jpg',
+            'modules/**/*/img/**/*.JPG',
             'modules/**/*/img/**/*.png',
+            'modules/**/*/img/**/*.PNG',
             'modules/**/*/img/**/*.gif',
-            'modules/**/*/img/**/*.svg'
+            'modules/**/*/img/**/*.GIF',
+            'modules/**/*/img/**/*.svg',
+            'modules/**/*/img/**/*.SVG'
         ],
         views: ['modules/*/client/views/**/*.pug']
     },

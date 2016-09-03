@@ -19,6 +19,9 @@
         this.totalDayMoney   = totalDayMoney;
         this.totalWeekAmount = totalWeekAmount;
         this.totalDayAmount  = totalDayAmount;
+        this.transformMonth  = transformMonth;
+        this.translateToVietnamese = translateToVietnamese;
+        this.totalAmount = totalAmount;
 
         // the default value of class .grey-bg
         var greyBackgroundDefault = 'grey-bg-2';
@@ -237,9 +240,12 @@
             return empty;
         }
 
-        function totalMoney() {
+        function totalMoney(externalMonth) {
+
+            var monthArray = externalMonth || month;
+
             var totalMoney = 0;
-            angular.forEach(month, function iterateMonth(week, index, month) {
+            angular.forEach(monthArray, function iterateMonth(week, index, monthArray) {
                 if (angular.isObject(week) && !angular.isArray(week)) {
                     totalMoney += totalWeekMoney(week);
                 }
@@ -268,6 +274,21 @@
             return totalMoney;
         }
 
+        function totalAmount(externalMonth) {
+
+            var monthArray = externalMonth || month;
+
+            var totalAmount = 0;
+            angular.forEach(monthArray, function iterateMonth(week, index, monthArray) {
+                if (angular.isObject(week) && !angular.isArray(week)) {
+                    totalAmount += totalWeekAmount(week);
+                }
+            });
+
+            return totalAmount;
+        }
+
+
         function totalWeekAmount(week) {
             var totalAmount = 0;
             angular.forEach(week, function(day) {
@@ -286,6 +307,74 @@
             });
 
             return totalAmount;
+        }
+
+        /**
+         * Transfrom *month* object from "tree" structure to "array" structure
+         * Because ui.grid's TreeView display base on array and it's $$treeLevel property
+         */
+        function transformMonth(month) {
+            var data = [];
+            
+            // interating weeks
+            for (var i = 0, _week; i < month.length; i++) {
+                _week = month[i];
+                var week = {
+                    $$treeLevel: 0,
+                    name: 'Tuần ' + (i + 1),
+                    amount: this.totalWeekAmount(_week),
+                    price: this.totalWeekMoney(_week),
+                    status: ''
+                };
+                data.push(week);
+
+                // iteration days in a week
+                for (var _day in _week) {
+                    if (angular.isDefined(_week[_day]) && angular.isDefined(_week[_day].bottles) && _week[_day].bottles.length > 0) {
+                        var day = {
+                            $$treeLevel: 1,
+                            name: translateToVietnamese(_day),
+                            amount: this.totalDayAmount(_week[_day]),
+                            price: this.totalDayMoney(_week[_day]),
+                            status: _week[_day].status || 'none'
+                        }
+                        data.push(day);
+
+                        // pushing bottles
+                        angular.forEach(_week[_day].bottles, function (_bottle) {
+                            var bottle = {
+                                $$treeLevel: 2,
+                                name: _bottle.name,
+                                price: _bottle.price,
+                                amount: _bottle.amount
+                            }
+                            data.push(bottle);
+                        });
+
+                    }
+                }
+            }
+
+            return data;
+        }
+
+        function translateToVietnamese(day) {
+            switch(day) {
+                case 'monday':
+                    return 'Thứ Hai';
+                case 'tuesday':
+                    return 'Thứ Ba';
+                case 'wednesday':
+                    return 'Thứ Tư';
+                case 'thursday':
+                    return 'Thứ Năm';
+                case 'friday':
+                    return 'Thứ Sáu';
+                case 'saturday':
+                    return 'Thứ Bảy';
+                case 'sunday':
+                    return 'Chủ Nhật';
+            }
         }
 
     } // End: CartMonthlyService

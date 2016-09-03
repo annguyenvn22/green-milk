@@ -9,7 +9,7 @@
 
     function configFn($stateProvider) {
         $stateProvider
-            .state('cart.cart-monthly', {
+            .state('home.cart.cart-monthly', {
                 url  : '/dat-mot-thang',
                 views: {
                     'aside'  : {

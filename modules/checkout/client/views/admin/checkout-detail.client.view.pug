@@ -1,0 +1,107 @@
+// CUSTOMER INFORMATION
+.panel.panel-default#admin-checkout-detail
+    .panel-heading
+        .panel-title
+            .row
+                .col-lg-6.text-left
+                    h4.text-info {{ vm.panelTitle }}
+                .col-lg-6.text-right
+                    h4#collapse-button
+                        //- put it in h4 tag --> horizontal align with vm.panelTitle
+                        i.fa.fa-minus-square-o.fa-lg(ng-click='vm.isCollapse = !vm.isCollapse' ng-if='!vm.isCollapse')
+                        i.fa.fa-plus-square-o.fa-lg(ng-click='vm.isCollapse = !vm.isCollapse' ng-if='vm.isCollapse')
+
+    .panel-body(uib-collapse='vm.isCollapse')
+        .row
+            form.form-horizontal
+                // LEFT SIDE
+                .col-lg-6
+                    .form-group
+                        label.control-label.col-lg-4(for='') {{ vm.customerNameLabel }}
+                        .col-lg-8
+                            p.form-control ten khach hang
+                    .form-group
+                        label.control-label.col-lg-4(for='') {{ vm.customerAddressLabel }}
+                        .col-lg-8
+                            p.form-control#customerAddress dong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong naidong nai
+                    .form-group
+                        label.control-label.col-lg-4(for='') {{ vm.customerPhoneNoLabel }}
+                        .col-lg-8
+                            p.form-control 0123456789
+                    .form-group
+                        label.control-label.col-lg-4(for='') {{ vm.totalMoneyLabel }}
+                        .col-lg-8 
+                            p.form-control 20k
+                    .form-group
+                        label.control-label.col-lg-4(for='') {{ vm.dateCreated }}
+                        .col-lg-8 
+                            p.form-control today
+                
+
+                // RIGHT SIDE ------ SINGLE
+                .col-lg-6(ng-if='vm.classifiesCheckoutType() === "single"')
+                    .form-group
+                        label.control-label.col-lg-3(for='status-selection') {{ vm.statusLabel }}
+                        .col-lg-9
+                            select.form-control(id='status-selection' ng-model='vm.statusDefault' ng-options='option.display for option in vm.options')
+                    .form-group
+                        label.control-label.col-lg-3(for='status-selection') {{ vm.releaseDateLabel }}
+                        .col-lg-9
+                            .input-group
+                                input.form-control(ng-model='vm.date' uib-datepicker-popup='{{ vm.datepicker.format }}' is-open='vm.datepicker.isOpen' type='text' current-text='{{ vm.datepicker.currentText }}' clear-text='{{ vm.datepicker.clearText }}' close-text='{{ vm.datepicker.closeText }}')
+                                span.input-group-btn
+                                    button.btn.btn-default(ng-click='vm.datepicker.isOpen = !vm.datepicker.isOpen')
+                                        i.fa.fa-calendar
+
+                    
+                    // SAVE AND CANCEL BUTTONS
+                    .form-group
+                        .col-lg-12.text-right
+                            button.btn.btn-primary(type='button') {{ vm.saveLabel }}
+                            button.btn.btn-default(type='button') {{ vm.cancelLabel}}
+
+                // RIGHT SIDE ------ MONTHLY 
+                .col-lg-6(ng-if='vm.classifiesCheckoutType() === "monthly"')
+                    .form-group
+                        label.text-info.control-label.col-lg-3 {{ vm.statusLabel }}
+                    
+                    // PROGRESS BAR
+                    .form-group
+                        .col-lg-10.col-lg-offset-1
+                            uib-progressbar.progress-striped.active(type='info' max='vm.totalBottles' value='vm.resolvedBottles')
+                                span {{ vm.resolvedBottleLabel }}
+                                span &nbsp;
+                                span {{ vm.resolvedBottles }}
+                                span &nbsp;
+                                span {{ vm.unit }}
+                                span &nbsp;
+                                span /
+                                span &nbsp;
+                                span {{ vm.totalBottles }}
+
+                    // DRAW DAY OF WEEK AND STATUS: RESOVLED/PENDING
+                    .form-group
+                        label.text-info.col-lg-3(ng-repeat='week in vm.checkout.cart track by $id(week)')
+                            span {{ vm.weekLabel }}
+                            span &nbsp;
+                            span {{ $index + 1}}
+                            .form-group
+                                label.col-lg-12(ng-repeat='(dayName, dateObject) in week' ng-if='dateObject.bottles && dateObject.bottles.length > 0')
+                                    h6(ng-switch='dateObject.status')
+                                        span.text-success(ng-switch-when='resolved')
+                                            i.fa.fa-check-square-o
+                                            span &nbsp;
+                                            span {{ vm.CartMonthlyService.translateToVietnamese(dayName) }}
+                                        span.text-muted(ng-switch-default)
+                                            i.fa.fa-square-o
+                                            span &nbsp;
+                                            span {{ vm.CartMonthlyService.translateToVietnamese(dayName) }}
+
+
+// GRID
+.row
+    .col-lg-12
+        .form-group
+            a( href='#' ng-click='vm.rejectCheckout()') {{ vm.rejectLabel }}
+        div(ui-grid='vm.gridOptions' ng-if='vm.classifiesCheckoutType() === "single"')
+        div(ui-grid='vm.gridOptions' ng-if='vm.classifiesCheckoutType() === "monthly"' ui-grid-tree-view )

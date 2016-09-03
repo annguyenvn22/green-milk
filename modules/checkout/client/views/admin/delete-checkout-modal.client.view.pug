@@ -1,0 +1,7 @@
+.modal-header
+    h4.text-center#delete-checkout-modal-label {{ vm.deleteCheckoutLabel }}
+.modal-body#delete-checkout-modal-body
+    h3.text-danger.text-center {{ vm.deleteCheckoutMessage}}
+.modal-footer
+    button.btn.btn-danger(ng-click='vm.confirmDelete()') {{ vm.deleteButtonLabel }}
+    button.btn.btn-default(ng-click='vm.confirmCancel()') {{ vm.cancelButtonLabel }}

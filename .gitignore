@@ -3,3 +3,5 @@ public/lib
 public/css
 public/dist
 .idea/workspace.xml
+app.log
+app*.log

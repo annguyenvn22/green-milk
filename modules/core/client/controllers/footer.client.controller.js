@@ -11,14 +11,14 @@
         var vm = this;
 
         vm.buttonLabel    = 'Đặt Hàng Ngay';
-        vm.copyRight      = '2016 &copy; Bản quyền thuộc về Green Milk';
+        vm.copyRight      = '2016 (c) Bản quyền thuộc về Green Milk';
         vm.email          = 'greenmilk.startup@gmail.com';
         vm.goToCartSingle = goToCartSingle;
 
         //////////////////////////
 
         function goToCartSingle() {
-            $state.go('cart.cart-single');
+            $state.go('home.cart.cart-single');
         }
     }
 }());

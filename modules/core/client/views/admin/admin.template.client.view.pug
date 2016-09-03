@@ -1,0 +1,29 @@
+.container#admin-template
+    .row
+        .col-lg-3.well
+
+            // back to homepage
+            .row#back-to-home
+                .col-lg-8.col-lg-offset-2
+                    a(ui-sref="{{ vm.home.state }}")
+                        i.fa.fa-home
+                        span &nbsp;
+                        span {{ vm.home.label }}
+
+            // user information
+            .row
+                .col-lg-6
+                    img.img-responsive.img-thumbnail(src='modules/core/client/img/default-avatar.jpg')
+                .col-lg-6
+                p {{ vm.helloLabel }}
+                p {{ vm.admin.name }}
+                a(href='/api/auth/logout') {{ vm.logoutLabel }}
+
+
+            // navigations
+            .list-group#admin-navigations
+                a.list-group-item(ng-repeat='nav in vm.navList' ui-sref='{{ nav.state }}' ui-sref-active='active') {{ nav.label }}
+
+        .col-lg-9
+            div(ncy-breadcrumb)
+            ui-view

@@ -27,8 +27,8 @@ module.exports = {
     app: {
         title: defaultEnvConfig.app.title
     },
-    port             : 80,
-    host             : '103.221.221.19',
+    port             : process.env.PORT || 80,
+    host             : process.env.HOST || '103.221.221.19',
     facebook: {
         clientID: process.env.FACEBOOK_ID || '1208350882538295',
         clientSecret: process.env.FACEBOOK_SECRET || 'f42986dc986c67149af82023e7a3b9f2',

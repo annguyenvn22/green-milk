@@ -28,3 +28,4 @@ module.exports = {
     sessionCollection: 'sessions',
     favicon          : 'modules/core/client/img/brand/favicon (2).ico'
 };
+

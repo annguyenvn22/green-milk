@@ -1,109 +1,109 @@
 #checkout-step-one
 
-  .content
-    // overflow: auto --> border of .content bound 2 sub div
-    overflow: auto
-    //======================== LEFT START =======================
-    .col-sm-7
-      border-right: 1px solid $bg-inactive
-      padding-bottom: 3em
+    .content
+        // overflow: auto --> border of .content bound 2 sub div
+        overflow: auto
+        //======================== LEFT START =======================
+        .authentication
+            border-right: 1px solid $bg-inactive
+            padding-bottom: 3em
 
-      h2
-        font-family: $font-open-sans
-        color: $dark-blue
-        font-weight: 550
+            h2#loginLabel
+                font-family: $font-open-sans
+                color: $dark-blue
+                font-weight: 550
 
-      // when user hover -> mouse cursor change to pointer
-      label
-        cursor: pointer
+            // when user hover -> mouse cursor change to pointer
+            label
+                cursor: pointer
 
-      // 2 radio button is hidden
-      input[type="radio"]
-        display: none
+            // 2 radio button is hidden
+            input[type="radio"]
+                display: none
 
-      // when a radio is selected => change background-color
-      input:checked + label.facebook:before
-        color: $facebook-bg-active
-      input:checked + label.google:before
-        color: $google-bg-active
+            // when a radio is selected => change background-color
+            input:checked + label.facebook:before
+                color: $facebook-bg-active
+            input:checked + label.google:before
+                color: $google-bg-active
 
-      // default value: google button and facebook button
-      .facebook
-        &:before
-          content: "\f082"
-          font-family: FontAwesome
-          color: $bg-inactive
-          font-size: 4em
-          margin-right: .3em
+            // default value: google button and facebook button
+            .facebook
+                &:before
+                    content: "\f082"
+                    font-family: FontAwesome
+                    color: $bg-inactive
+                    font-size: 4em
+                    margin-right: .3em
 
-      .google
-        display: inline
-        &:before
-          content: "\f0d4"
-          font-family: FontAwesome
-          color: $bg-inactive
-          font-size: 4em
-        // break new line :)
-        &:after
-          white-space: pre
-          content: "\a"
+            .google
+                display: inline
+                &:before
+                    content: "\f0d4"
+                    font-family: FontAwesome
+                    color: $bg-inactive
+                    font-size: 4em
+                    // break new line :)
+                    &:after
+                        white-space: pre
+                        content: "\a"
 
-      // orLabel
-      #orLabel
-        margin-bottom: 1em
+            // orLabel
+            #orLabel
+                margin-bottom: 1em
 
-      // username & password
-      .input-group + .input-group
-        margin-top: .8em
-        margin-bottom: .8em
+            // username & password
+            .input-group + .input-group
+                margin-top: .8em
+                margin-bottom: .8em
 
-        // login button :)
-        & + div > btn
-          border-radius: 1.3em
-          font-family: $font-open-sans
-    //======================== LEFT END =======================
+                // login button :)
+                & + div > btn
+                    border-radius: 1.3em
+                    font-family: $font-open-sans
+        //======================== LEFT END =======================
 
-    //======================== RIGHT START =======================
-    .col-sm-5
-      h4
-        color: $bg-inactive
-        font-family: $font-open-sans
-        margin-top: 1.6em
-      btn.btn-facebook
-        background-color: $facebook-bg-active
-        border-color: darken($facebook-bg-active, 10%)
-        font-family: $font-open-sans
-        border-radius: .8em
-        width: 15em
+        //======================== RIGHT START =======================
+        .registration
+            h4
+                color: $bg-inactive
+                font-family: $font-open-sans
+                margin-top: 1.6em
+            btn.btn-facebook
+                background-color: $facebook-bg-active
+                border-color: darken($facebook-bg-active, 10%)
+                font-family: $font-open-sans
+                border-radius: .8em
+                width: 15em
 
-        &:before
-          content: "\f09a"
-          font-family: FontAwesome
-          padding-right: .5em
-          margin-right: .5em
-          font-size: 1.2em
-          border-right: 2px solid white
+                &:before
+                    content: "\f09a"
+                    font-family: FontAwesome
+                    padding-right: .5em
+                    margin-right: .5em
+                    font-size: 1.2em
+                    border-right: 2px solid white
 
-        &:hover, &:focus
-          background-color: darken($facebook-bg-active, 10%)
+                &:hover, &:focus
+                    background-color: darken($facebook-bg-active, 10%)
 
-      btn.btn-google
-        background-color: $google-bg-active
-        border-color: darken($google-bg-active, 10%)
-        font-family: $font-open-sans
-        border-radius: .8em
-        width: 15em
-        padding-left: 0
-        margin-top: .8em
+            btn.btn-google
+                background-color: $google-bg-active
+                border-color: darken($google-bg-active, 10%)
+                font-family: $font-open-sans
+                border-radius: .8em
+                width: 15em
+                padding-left: 0
+                margin-top: .8em
 
-        &:before
-          content: "\f1a0"
-          font-family: FontAwesome
-          padding-right: .5em
-          margin-right: .5em
-          font-size: 1.2em
-          border-right: 2px solid white
+                &:before
+                    content: "\f1a0"
+                    font-family: FontAwesome
+                    padding-right: .5em
+                    margin-right: .5em
+                    font-size: 1.2em
+                    border-right: 2px solid white
 
-        &:hover, &:focus
-          background-color: darken($google-bg-active, 10%)
-//======================== RIGHT END =======================
+                &:hover, &:focus
+                    background-color: darken($google-bg-active, 10%)
+            //======================== RIGHT END =======================
