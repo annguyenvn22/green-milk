@@ -27,13 +27,14 @@
             var checkout = store.get('checkout');
 
             if (Authentication.user && checkout) {
-                if (typeof checkout != 'array') {
+                if (!Array.isArray(checkout)) {
                     CartSingleService.setCartSingle(checkout);
                     store.remove('checkout');
                     $state.go('^.cart.cart-single.checkout.step-two');
                 } else {
-                    // TODO
-                    console.error('not implement yet')
+                    CartMonthlyService.setMonth(checkout);
+                    store.remove('checkout');
+                    $state.go('^.cart.cart-monthly.checkout.step-two');
                 }
             }
 
