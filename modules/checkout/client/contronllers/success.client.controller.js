@@ -19,7 +19,7 @@
         /////////////////
 
         function backToHomepage() {
-            $state.go('homepage');
+            $state.go('home.index');
         }
 
         function continueShopping() {

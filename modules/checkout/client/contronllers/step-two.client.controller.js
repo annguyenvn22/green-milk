@@ -32,8 +32,6 @@
             vm.updateLabel      = 'Cập Nhật';
             vm.addressLabel     = 'Địa chỉ: ';
             vm.phoneNumberLabel = 'SĐT: ';
-            vm.customerBackup = angular.copy(vm.customer);
-            vm.customerEdit = angular.copy(vm.customer);
             vm.service = /single/.test($state.current.name) ? vm.service = CartSingleService : vm.service = CartMonthlyService;
             vm.notEditUserException = 'Hãy sửa thông tin để chúng tôi liên lạc dễ dàng bạn nhé :)';
             vm.notEditedYet = angular.equals(vm.customerBackup, vm.customerEdit);
@@ -50,8 +48,6 @@
 
         function updateCustomerInfo() {
             // TODO call server api to update info
-            vm.customer = angular.copy(vm.customerEdit);
-            vm.notEditedYet = angular.equals(vm.customerBackup, vm.customerEdit);
             vm.isCollapsed = true;
              scrollUp();
         }
