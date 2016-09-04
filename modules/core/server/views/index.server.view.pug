@@ -16,7 +16,8 @@ html
     body.ng-cloak
         ui-view
 
-           
+        script(type='text/javascript').
+            var user = !{JSON.stringify(user)}    
 
         // AngularJS files
         each jsFile in jsFiles
