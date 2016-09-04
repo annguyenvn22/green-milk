@@ -42,18 +42,24 @@
             $state.go('^.step-two');
         }
 
-        function saveCartToCookies() {
+        function storeCart() {
             var isSingle = /single/.test($state.current.name);
             if (isSingle) {
-                store.set('checkout', CartSingleService.getCartSingle());
+                store.set('checkout', {
+                    type: 'single',
+                    cart: CartSingleService.getCartSingle()
+                });
             } else {
-                store.set('checkout', CartMonthlyService.getMonth());
+                store.set('checkout', {
+                    type: 'monthly',
+                    cart: CartMonthlyService.getMonth()
+                });
             }
         }
 
         function callOAuth(url) {
             // save cart object to cookies
-            saveCartToCookies();
+            storeCart();
 
 
             var currentHref = $state.href($state.current, $state.current.data);

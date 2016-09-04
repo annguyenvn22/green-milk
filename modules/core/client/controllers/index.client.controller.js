@@ -27,12 +27,12 @@
             var checkout = store.get('checkout');
 
             if (Authentication.user && checkout) {
-                if (!Array.isArray(checkout)) {
-                    CartSingleService.setCartSingle(checkout);
+                if (angular.equals('single', checkout.type)) {
+                    CartSingleService.setCartSingle(checkout.cart);
                     store.remove('checkout');
                     $state.go('^.cart.cart-single.checkout.step-two');
                 } else {
-                    CartMonthlyService.setMonth(checkout);
+                    CartMonthlyService.setMonth(checkout.cart);
                     store.remove('checkout');
                     $state.go('^.cart.cart-monthly.checkout.step-two');
                 }
