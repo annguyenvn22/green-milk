@@ -32,14 +32,15 @@
 
 
             vm.gridOptions = {
+                enableFiltering: true,
                 columnDefs: [
-                     { field: 'index', displayName: '#', width: '5%', cellTemplate: '<div class="ui-grid-cell-contents">{{grid.renderContainers.body.visibleRowCache.indexOf(row) + 1}}</div>'},
+                     { field: 'index', displayName: '#', width: '5%', cellTemplate: '<div class="ui-grid-cell-contents">{{grid.renderContainers.body.visibleRowCache.indexOf(row) + 1}}</div>', enableFiltering: false, enableSorting: false },
                      { field: 'displayName', displayName: 'Họ và tên' },
                      { field: 'dateCreated', displayName: 'Ngày đăng kí', cellTemplate: '<div class="ui-grid-cell-contents">{{ COL_FIELD | date : "dd/MM/yyyy" : "+7" }}</div>' },
                      { field: 'provider', displayName: 'Loại đăng kí' },
                      { field: 'roles', displayName: 'Quyền', cellTemplate: '<div class="ui-grid-cell-contents"  popover-trigger="outsideClick" popover-title="Quyền" popover-append-to-body="true" uib-popover="{{ COL_FIELD }}">{{ row.entity.roles.join(", ") }}</div>' },
                      { field: 'address', displayName: 'Địa chỉ', cellTemplate: '<div class="ui-grid-cell-contents" popover-trigger="outsideClick" popover-title="Địa chỉ" popover-append-to-body="true" uib-popover="{{ COL_FIELD }}">{{ COL_FIELD }}<div>'},
-                     { field: 'options', displayName: 'Chức năng', cellTemplate: '<div class="ui-grid-cell-contents">them xoa sua blah blah</div>'},
+                     { field: 'options', displayName: 'Chức năng', cellTemplate: '<div class="ui-grid-cell-contents">them xoa sua blah blah</div>', enableFiltering: false, enableSorting: false },
                 ],
                 data: AdminUserService.query()
             }; // end vm.gridOptions

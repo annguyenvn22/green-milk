@@ -71,7 +71,6 @@
          */
         function initCellClass(grid, row, col, rowRenderIndex, colRenderIndex) {
             var cellValue = grid.getCellValue(row, col);
-            console.log(cellValue)
             if (angular.equals('resolved', cellValue)) {
                 return 'bg-resolved';
             } else {
