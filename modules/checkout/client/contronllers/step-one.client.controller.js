@@ -18,6 +18,11 @@
         ////////////////
 
         function activate() {
+
+            if (Authentication.user) {
+                goToStepTwo();
+            }
+
             $location.hash('document');
             $anchorScroll();
             vm.title                 = 'Bước 1: Đăng Nhập';
@@ -40,9 +45,9 @@
         function saveCartToCookies() {
             var isSingle = /single/.test($state.current.name);
             if (isSingle) {
-                store.set('single', CartSingleService.getCartSingle());
+                store.set('checkout', CartSingleService.getCartSingle());
             } else {
-                store.set('monthly', CartMonthlyService.getMonth());
+                store.set('checkout', CartMonthlyService.getMonth());
             }
         }
 

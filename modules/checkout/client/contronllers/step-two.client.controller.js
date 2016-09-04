@@ -5,8 +5,8 @@
         .module('checkout')
         .controller('StepTwoController', StepTwoController);
 
-    StepTwoController.$inject = ['$state', 'CartSingleService', 'CartMonthlyService', '$location', '$anchorScroll'];
-    function StepTwoController($state, CartSingleService, CartMonthlyService, $location, $anchorScroll) {
+    StepTwoController.$inject = ['$state', 'CartSingleService', 'CartMonthlyService', '$location', '$anchorScroll', 'Authentication'];
+    function StepTwoController($state, CartSingleService, CartMonthlyService, $location, $anchorScroll, Authentication) {
         var vm = this;
 
         activate();
@@ -14,10 +14,14 @@
         vm.goToStepThree    = goToStepThree;
         vm.updateCustomerInfo = updateCustomerInfo;
         vm.scrollDown = scrollDown;
+        vm.user = Authentication.user;
 
         ///////////////////
 
         function activate() {
+            if (!Authentication.user) {
+                $state.go('^.step-one');
+            }
             scrollUp();
             vm.isCollapsed      = true;
             vm.title            = 'Bước 2: Địa chỉ giao hàng';
@@ -28,11 +32,6 @@
             vm.updateLabel      = 'Cập Nhật';
             vm.addressLabel     = 'Địa chỉ: ';
             vm.phoneNumberLabel = 'SĐT: ';
-            vm.customer         = {
-                fullName   : 'Họ Tên của bạn',
-                address    : 'Địa chỉ cụ thể của bạn để chúng tôi có thể giao hàng đúng nơi',
-                phoneNumber: 'Số điện thoại của bạn để chúng tôi có thể liên lạc'
-            };
             vm.customerBackup = angular.copy(vm.customer);
             vm.customerEdit = angular.copy(vm.customer);
             vm.service = /single/.test($state.current.name) ? vm.service = CartSingleService : vm.service = CartMonthlyService;

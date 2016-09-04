@@ -6,13 +6,13 @@
             h3 {{ vm.header }}
             .user-info
                 p.full-name.lead
-                    strong {{ vm.customer.fullName }}
+                    strong {{ vm.user.displayName }}
                 p.address
                     strong {{ vm.addressLabel }}
-                    span {{ vm.customer.address }}
+                    span {{ vm.user.address }}
                 p.phone-number
                     strong {{ vm.phoneNumberLabel }}
-                    span {{ vm.customer.phoneNumber }}
+                    span {{ vm.user.phoneNumber }}
                 .text-right
                     button.btn.btn-default.btn-primary(ng-click='vm.goToStepThree()' ng-disabled='vm.service.isEmpty() || vm.notEditedYet') {{ vm.header }}
                     button.btn.btn-default(ng-click='vm.isCollapsed = !vm.isCollapsed' ng-disabled='vm.service.isEmpty()') {{ vm.edit }}

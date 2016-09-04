@@ -5,8 +5,11 @@
         .module('checkout.routes')
         .config(configFn);
 
-    configFn.$inject = ['$stateProvider'];
-    function configFn($stateProvider) {
+    configFn.$inject = ['$stateProvider', 'storeProvider'];
+    function configFn($stateProvider, storeProvider) {
+        // Change default localStorage to sessionStorage
+        storeProvider.setStore('sessionStorage');
+
         $stateProvider
 
         // Cart Monthly

@@ -35,11 +35,11 @@
         }
 
         function checkout() {
-            var state    = /single/.test($state.current.name) ? 'single' : 'monthly';
+            var state = /single/.test($state.current.name) ? 'single' : 'monthly';
             var checkout = new Checkout({
-                type         : state,
+                type: state,
                 paymentMethod: vm.payment,
-                cart         : []
+                cart: []
             });
 
             switch (state) {
