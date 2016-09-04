@@ -111,9 +111,34 @@
                     state: 'home.recruitment',
                     subMenus: []
                 }
+                
             ];
+
+            initUserNav();
         }
 
+
+        function initUserNav() {
+            if (Authentication.user) {
+                vm.menus.push(
+                    {
+                        name: Authentication.user.displayName,
+                        isUser: true,
+                        subMenus: [
+                            {
+                                name: 'Trang Admin',
+                                state: 'admin.checkout-management'
+                            },
+                             {
+                                name: 'Đăng xuất',
+                                api: '/api/auth/signout'
+                            }
+                        ]
+                    }
+                );
+            }
+
+        }
 
     }
 })();

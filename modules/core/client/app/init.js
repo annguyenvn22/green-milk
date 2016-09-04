@@ -10,6 +10,8 @@
         .module(app.applicationModuleName)
         .config(bootstrapConfig);
 
+    bootstrapConfig.$inject = ['$locationProvider', '$httpProvider'];
+
     function bootstrapConfig($locationProvider, $httpProvider) {
         // $locationProvider.html5Mode(true).hashPrefix('!');
         $locationProvider.hashPrefix('!');

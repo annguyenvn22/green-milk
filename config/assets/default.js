@@ -8,7 +8,8 @@ module.exports = {
                 'public/lib/bootstrap/dist/css/bootstrap.css',
                 'public/lib/components-font-awesome/css/font-awesome.css',
                 'public/lib/angular-ui-grid/ui-grid.css',
-                'public/lib/angular-bootstrap/ui-bootstrap-csp.css'
+                'public/lib/angular-bootstrap/ui-bootstrap-csp.css',
+                'public/lib/angular-block-ui/dist/angular-block-ui.css'
                 // endbower
             ],
             js   : [
@@ -27,7 +28,8 @@ module.exports = {
                 'public/lib/a0-angular-storage/dist/angular-storage.js',
                 'public/lib/angular-breadcrumb/release/angular-breadcrumb.js',
                 'node_modules/chart.js/dist/Chart.js',
-                'node_modules/angular-chart.js/dist/angular-chart.js'
+                'node_modules/angular-chart.js/dist/angular-chart.js',
+                'public/lib/angular-block-ui/dist/angular-block-ui.js'
                 // endbower
             ],
             tests: ['public/lib/angular-mocks/angular-mocks.js']

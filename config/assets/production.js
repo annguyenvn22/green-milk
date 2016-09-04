@@ -9,7 +9,8 @@ module.exports = {
                 // bower:css
                 'public/lib/bootstrap/dist/css/bootstrap.min.css',
                 'public/lib/components-font-awesome/css/font-awesome.min.css',
-                'public/lib/angular-ui-grid/ui-grid.min.css'
+                'public/lib/angular-ui-grid/ui-grid.min.css',
+                'public/lib/angular-block-ui/dist/angular-block-ui.min.css'
                 // endbower
             ],
             js: [
@@ -26,7 +27,8 @@ module.exports = {
                 'public/lib/angular-ui-grid/ui-grid.min.js',
                 'public/lib/angular-cookies/angular-cookies.min.js',
                 'public/lib/a0-angular-storage/dist/angular-storage.min.js',
-                'public/lib/angular-breadcrumb/release/angular-breadcrumb.min.js'
+                'public/lib/angular-breadcrumb/release/angular-breadcrumb.min.js',
+                'public/lib/angular-block-ui/dist/angular-block-ui.min.js'
                 // endbower
             ]
         },
