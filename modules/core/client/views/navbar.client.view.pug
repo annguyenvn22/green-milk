@@ -15,8 +15,16 @@ nav.navbar.navbar-default.navbar-fixed-top(ng-controller='NavBarController as vm
                 li.dropdown(uib-dropdown='uib-dropdown', dropdown-append-to='dropdown-append-to' ng-repeat='menu in vm.menus')
                     a(ui-sref='{{ menu.state }}' uib-dropdown-toggle='uib-dropdown-toggle' ng-if='menu.state' ui-sref-active='active') {{ menu.name }}
                     a(uib-dropdown-toggle='uib-dropdown-toggle' ng-if='!menu.state' ui-sref-active='active') &nbsp; {{ menu.name }}
+                        
+                        // USER AVATAR
+                        span(ng-if='menu.isUser') 
+                            span &nbsp;
+                            img#user-img.img-responsive.img-circle(ng-src='{{ vm.Authentication.user.profileImageURL }}' alt='vm.Authentication.user.displayName')
+                        // END USER AVATAR
+
                         span &nbsp;
                         span.caret(ng-if='menu.subMenus.length')
                     ul.dropdown-menu(uib-dropdown-menu='uib-dropdown-menu' ng-if='menu.subMenus.length')
                         li(ng-repeat='subMenu in menu.subMenus')
-                            a(ui-sref='{{subMenu.state}}' ui-sref-active='active') {{ subMenu.name }}
+                            a(ui-sref='{{ subMenu.state }}' ui-sref-active='active' ng-if='subMenu.state') {{ subMenu.name }}
+                            a(href='{{ subMenu.api }}' ui-sref-active='active' ng-if='subMenu.api') {{ subMenu.name }}

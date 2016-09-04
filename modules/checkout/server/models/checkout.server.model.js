@@ -18,9 +18,9 @@ var CheckoutSchema = new Schema({
     status: {
         type: [{
             type: String,
-            enum: ['resolved', 'pending', 'rejected'],
-            default: 'pending'
-        }]
+            enum: ['resolved', 'pending', 'rejected']
+        }],
+        default: 'pending'
     },
     user: {
         type: Schema.ObjectId,

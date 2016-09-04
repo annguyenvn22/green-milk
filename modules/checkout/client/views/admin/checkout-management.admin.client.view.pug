@@ -1,9 +1,10 @@
-div#checkout-chart
-    .col-lg-6
-        canvas(class='chart chart-pie' chart-data='vm.chartSingle.data' chart-labels='vm.chartSingle.labels' chart-options='vm.chartSingle.options')
-    .col-lg-6    
-        canvas(class='chart chart-pie' chart-data='vm.chartMonthly.data' chart-labels='vm.chartMonthly.labels' chart-options='vm.chartMonthly.options')
+#admin-checkot-management
+    #checkout-chart
+        .col-lg-6
+            canvas(class='chart chart-pie' chart-data='vm.chartSingle.data' chart-labels='vm.chartSingle.labels' chart-options='vm.chartSingle.options')
+        .col-lg-6    
+            canvas(class='chart chart-pie' chart-data='vm.chartMonthly.data' chart-labels='vm.chartMonthly.labels' chart-options='vm.chartMonthly.options')
 
-    div#checkout-table
-        h3 {{ vm.checkoutLabel }}
-        div(ui-grid='vm.gridOptions')
+        #checkout-table
+            h3 {{ vm.checkoutLabel }}
+            div(ui-grid='vm.gridOptions')

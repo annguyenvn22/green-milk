@@ -13,6 +13,7 @@
 
         this.getMilkBottles       = CartService.getMilkBottles;
         this.getCartSingle        = getCartSingle;
+        this.setCartSingle        = setCartSingle;
         this.addToCartSingle      = addToCartSingle;
         this.removeFromCartSingle = removeFromCartSingle;
         this.isEmpty              = isEmpty;
@@ -76,6 +77,10 @@
             }
 
             return totalMoney;
+        }
+
+        function setCartSingle(cart) {
+            cartSingle = cart;
         }
 
     }

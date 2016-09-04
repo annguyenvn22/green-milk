@@ -10,6 +10,7 @@
 
         this.getMilkBottles  = CartService.getMilkBottles;
         this.getMonth        = getMonth;
+        this.setMonth        = setMonth;
         this.select          = select;
         this.checkGreyBg     = checkGreyBg;
         this.cleanCart       = cleanCart;
@@ -375,6 +376,10 @@
                 case 'sunday':
                     return 'Chủ Nhật';
             }
+        }
+
+        function setMonth(newMonth) {
+            month = newMonth;
         }
 
     } // End: CartMonthlyService

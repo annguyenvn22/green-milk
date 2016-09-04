@@ -22,11 +22,21 @@
 
     .navbar-nav li
         cursor: pointer
-        & > .dropdown-menu
+
+        // dropdown panel float left
+        .dropdown-menu
             left: 0
-        & a
-          +navbar-props
-          font-weight: bold
+        
+        a
+            +navbar-props
+            font-weight: bold
+
+            img#user-img
+                height: 3em
+                float: left
+                bottom: .8em
+                position: relative
+
 
     // remove padding 15px <--- navbar and footer equals width
     .container
