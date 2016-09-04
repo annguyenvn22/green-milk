@@ -7,19 +7,18 @@
             .col-lg-7.authentication
                 h2#loginLabel {{ vm.loginWithLabel }}
                 .text-center
-                    input#facebookRad(type='radio', name='registerWith', checked='checked')
-                    label.facebook(for='facebookRad' ng-click='vm.callOAuth("/api/auth/facebook")')
-                    input#googleRad(type='radio', name='registerWith')
-                    label.google(for='googleRad' ng-click='vm.callOAuth("/api/auth/google")')
+                    p
+                        i.fa.fa-facebook-square.fa-4x(ng-click='vm.callOAuth("/api/auth/facebook")')
+                        i.fa.fa-google-plus-square.fa-4x(ng-click='vm.callOAuth("/api/auth/google")')
                 h2#orLabel {{ vm.orLabel }}
                 .input-group
                     span.input-group-addon
                         i.fa.fa-user
-                    input.form-control.inputlg(type='text', placeholder='{{ vm.usernamePlaceholderLabel }}')
+                    input.form-control.inputlg(type='text' placeholder='{{ vm.usernamePlaceholderLabel }}' ng-model='vm.user.username')
                 .input-group
                     span.input-group-addon
                         i.fa.fa-key
-                    input.form-control.inputlg(type='text', placeholder='{{ vm.passwordPlaceholderLabel }}')
+                    input.form-control.inputlg(type='text' placeholder='{{ vm.passwordPlaceholderLabel }}' ng-model='vm.user.password')
                 .text-right
                     btn.btn.btn-default.btn-success.btn-lg(ng-click='vm.goToStepTwo()') {{ vm.loginLabel }}
             // right

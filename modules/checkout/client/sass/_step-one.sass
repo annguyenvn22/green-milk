@@ -1,5 +1,7 @@
 #checkout-step-one
 
+    padding-bottom: 2em
+
     .content
         // overflow: auto --> border of .content bound 2 sub div
         overflow: auto
@@ -12,41 +14,17 @@
                 font-family: $font-open-sans
                 color: $dark-blue
                 font-weight: 550
-
-            // when user hover -> mouse cursor change to pointer
-            label
+            
+            i
                 cursor: pointer
+                color: $bg-inactive
+                &.fa.fa-facebook-square:hover
+                    color: $facebook-bg-active
 
-            // 2 radio button is hidden
-            input[type="radio"]
-                display: none
-
-            // when a radio is selected => change background-color
-            input:checked + label.facebook:before
-                color: $facebook-bg-active
-            input:checked + label.google:before
-                color: $google-bg-active
-
-            // default value: google button and facebook button
-            .facebook
-                &:before
-                    content: "\f082"
-                    font-family: FontAwesome
-                    color: $bg-inactive
-                    font-size: 4em
-                    margin-right: .3em
-
-            .google
-                display: inline
-                &:before
-                    content: "\f0d4"
-                    font-family: FontAwesome
-                    color: $bg-inactive
-                    font-size: 4em
-                    // break new line :)
-                    &:after
-                        white-space: pre
-                        content: "\a"
+                &.fa.fa-google-plus-square
+                    margin-left: .2em
+                    &:hover
+                        color: $google-bg-active
 
             // orLabel
             #orLabel
