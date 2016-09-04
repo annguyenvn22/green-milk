@@ -1,1 +1,42 @@
-h1 hello
+.row
+    .col-lg-12
+        button.btn.btn-primary(ng-click='vm.isCollapse = !vm.isCollapse')
+            span.fa.fa-plus
+            span &nbsp;
+            span {{ vm.addUserButtonLabel }}
+    .col-lg-12
+        #add-user-form(uib-collapse='vm.isCollapse')
+            form.form-horizontal(name='addUser')
+                .form-group
+                    label.col-lg-3.control-label(for='username') {{ vm.usernameLabel }}
+                    .col-lg-5
+                        input.form-control(type='text' id='username' ng-model='vm.user.username' placeholder='{{ vm.usernamePlaceholder }}')
+                .form-group
+                    label.col-lg-3.control-label(for='display-name') {{ vm.displayNameLabel }}
+                    .col-lg-5
+                        input.form-control(type='text' id='display-name' ng-model='vm.user.displayName' placeholder=' {{ vm.displayNamePlaceholder }}')
+                .form-group
+                    label.col-lg-3.control-label(for='provider') {{ vm.providerLabel }}
+                    .col-lg-5
+                        input.form-control(type='text' id='provider' ng-model='vm.user.provider' ng-readonly='true')
+                .form-group
+                    label.col-lg-3.control-label(for='address') {{ vm.addressLabel }}
+                    .col-lg-5
+                        textarea.form-control(type='text' id='address' ng-model='vm.user.address')
+                .form-group
+                    label.col-lg-3.control-label(for='roles') {{ vm.roleLabel }}
+                    .col-lg-5
+                        .btn-group(role='group')
+                            label.btn.btn-primary.text-capitalize(uib-btn-checkbox ng-model='vm.roles.user' ng-disabled='true') {{ vm.userLabel }}
+                            label.btn.btn-primary.text-capitalize(uib-btn-checkbox ng-model='vm.roles.admin') {{ vm.adminLabel }}
+                            label.btn.btn-primary.text-capitalize(uib-btn-checkbox ng-model='vm.roles.seller') {{ vm.sellerLabel }}
+
+                
+                .form-group
+                    .col-lg-2.col-lg-offset-4
+                        button.btn.btn-primary.form-control {{ vm.saveLabel }}
+                    .col-lg-2
+                        button.btn.btn-default.form-control(ng-click='vm.isCollapse = true') {{ vm.cancelLabel }}
+
+    .col-lg-12
+        #users-grid(ui-grid='vm.gridOptions')
