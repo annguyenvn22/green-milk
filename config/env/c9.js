@@ -17,26 +17,26 @@ module.exports = {
         // Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
         format: 'dev',
         fileLogger: {
-          directoryPath: process.cwd(),
-          fileName: 'app.log',
-          maxsize: 10485760,
-          maxFiles: 2,
-          json: false
+            directoryPath: process.cwd(),
+            fileName: 'app.log',
+            maxsize: 10485760,
+            maxFiles: 2,
+            json: false
         }
     },
     app: {
         title: defaultEnvConfig.app.title + ' - c9.io'
     },
-    port             : process.env.PORT || 3000,
-    host             : process.env.IP || 'localhost',
+    port: process.env.PORT,
+    host: process.env.IP,
     facebook: {
-        clientID: process.env.FACEBOOK_ID || '1208350882538295',
-        clientSecret: process.env.FACEBOOK_SECRET || 'f42986dc986c67149af82023e7a3b9f2',
+        clientID: '1299586666748049',
+        clientSecret: 'af652e660148f02aba6493a324cb2d1e',
         callbackURL: '/api/auth/facebook/callback'
     },
     google: {
-        clientID: process.env.GOOGLE_ID || 'APP_ID',
-        clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+        clientID: 'APP_ID',
+        clientSecret: 'APP_SECRET',
         callbackURL: '/api/auth/google/callback'
     },
     livereload: true

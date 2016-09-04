@@ -28,13 +28,13 @@ module.exports = {
         title: defaultEnvConfig.app.title + ' - Development Environment'
     },
     facebook: {
-        clientID: process.env.FACEBOOK_ID || '1208350882538295',
-        clientSecret: process.env.FACEBOOK_SECRET || 'f42986dc986c67149af82023e7a3b9f2',
+        clientID: '1299583890081660',
+        clientSecret: 'd7ee39711ee9d623426110ff4b18e1b2',
         callbackURL: '/api/auth/facebook/callback'
     },
     google: {
-        clientID: process.env.GOOGLE_ID || 'APP_ID',
-        clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+        clientID: 'APP_ID',
+        clientSecret: 'APP_SECRET',
         callbackURL: '/api/auth/google/callback'
     },
     livereload: true
