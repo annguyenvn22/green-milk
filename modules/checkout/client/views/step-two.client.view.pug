@@ -2,36 +2,28 @@
     .header
         h2 {{ vm.title }}
     #checkout-step-two
-        .content
-            h3 {{ vm.header }}
-            .user-info
-                p.full-name.lead
-                    strong {{ vm.user.displayName }}
-                p.address
-                    strong {{ vm.addressLabel }}
-                    span {{ vm.user.address }}
-                p.phone-number
-                    strong {{ vm.phoneNumberLabel }}
-                    span {{ vm.user.phoneNumber }}
-                .text-right
-                    button.btn.btn-default.btn-primary(ng-click='vm.goToStepThree()' ng-disabled='vm.service.isEmpty()') {{ vm.header }}
-                    button.btn.btn-default(ng-click='vm.isCollapsed = !vm.isCollapsed' ng-disabled='vm.service.isEmpty()') {{ vm.edit }}
-                
-                gm-empty-cart-exception(condition='vm.service.isEmpty()')
-
-            .update-info#update-user-info(uib-collapse='vm.isCollapsed' expanded='vm.scrollDown()')
-                h3 {{ vm.updateAddress }}
-                form.form-horizontal.update-form
-                    // TODO use .form-group asshole
+        .row
+            .col-lg-6.col-lg-offset-3
+                h3(ng-if="vm.isReadonly") {{ vm.header }}
+                h3(ng-if="!vm.isReadonly") {{ vm.updateAddressLabel }}
+                form.form-horizontal
                     .form-group
-                        .col-lg-8
-                            input.form-control.input(type='text' ng-model='vm.customerEdit.fullName')
+                        label.control-label.col-lg-3(for="display-name") {{ vm.displayNameLabel }}
+                        .col-lg-9
+                            input.form-control(type="text" id="display-name" ng-model="vm.user.displayName" ng-readonly="true")
                     .form-group
-                        .col-lg-8
-                            input.form-control.input(type='text' ng-model='vm.customerEdit.phoneNumber')
+                        label.control-label.col-lg-3(for="phone-number") {{ vm.phoneNumberLabel }}
+                        .col-lg-9
+                            input.form-control(type=text id="phone-number" ng-model="vm.user.phoneNumber" ng-readonly="vm.isReadonly")
                     .form-group
-                        .col-lg-8
-                            textarea#address(name='address', cols='55', rows='8' ng-model='vm.customerEdit.address')
-                    .col-lg-12.text-right
-                        button.btn.btn-default(ng-click='vm.isCollapsed = true') {{ vm.cancelLabel }}
-                        button.btn.btn-default.btn-primary(ng-click='vm.updateCustomerInfo()') {{ vm.updateLabel }}
+                        label.control-label.col-lg-3(for="address") {{ vm.addressLabel }}
+                        .col-lg-9
+                            textarea.form-control(id="address" ng-model="vm.user.address" ng-readonly="vm.isReadonly")
+                    .form-group
+                        .col-lg-12.text-right
+                            div(ng-if="vm.isReadonly")
+                                button.btn.btn-primary(ng-click="vm.updateOrNext()") {{ vm.header }}
+                                button.btn.btn-default#edit-user-info(ng-click="vm.isReadonly = !vm.isReadonly") {{ vm.editLabel }}
+                            div(ng-if="!vm.isReadonly")
+                                button.btn.btn-primary(ng-click="vm.updateOrNext()") {{ vm.updateLabel }}
+                                button.btn.btn-default#edit-user-info(ng-click="vm.isReadonly = !vm.isReadonly") {{ vm.cancelLabel }}
