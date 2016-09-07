@@ -11,7 +11,6 @@
 
         activate();
 
-        vm.goToStepTwo    = goToStepTwo;
         vm.callOAuth      = callOAuth;
         vm.Authentication = Authentication;
 
@@ -22,24 +21,10 @@
             if (Authentication.user) {
                 goToStepTwo();
             }
+            vm.title = 'Bước 1: Đăng nhập';
+            vm.loginWithFacebook  = 'Đăng nhập bằng facebook';
+            vm.loginWithGoogle    = 'Đăng nhập bằng google';
 
-            $location.hash('document');
-            $anchorScroll();
-            vm.title                 = 'Bước 1: Đăng Nhập';
-            vm.orLabel               = '... Hoặc đăng nhập với:';
-            vm.loginWithLabel        = 'Đăng nhập với:';
-            vm.loginLabel            = ' Đăng Nhập';
-            vm.createNewAccountLabel = ' Chưa có tài khoản?';
-            vm.registerWithFacebook  = 'Đăng kí bằng facebook';
-            vm.registerWithGoogle    = 'Đăng kí bằng google';
-            vm.authError             = {};
-            vm.usernamePlaceholderLabel = 'Tên tài khoản';
-            vm.passwordPlaceholderLabel = 'Mật khẩu';
-
-        }
-
-        function goToStepTwo() {
-            $state.go('^.step-two');
         }
 
         function storeCart() {

@@ -16,9 +16,9 @@
         ///////////////////
 
         function activate() {
-            if (!Authentication.user) {
-                $state.go('^.step-one');
-            }
+            // if (!Authentication.user) {
+            //     $state.go('^.step-one');
+            // }
             vm.isReadonly           = true;
             vm.title                = 'Bước 2: Địa chỉ giao hàng';
             vm.header               = 'Giao đến địa chỉ này';
