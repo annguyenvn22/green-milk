@@ -111,7 +111,7 @@
                     state: 'home.recruitment',
                     subMenus: []
                 }
-                
+
             ];
 
             initUserNav();
@@ -120,22 +120,26 @@
 
         function initUserNav() {
             if (Authentication.user) {
-                vm.menus.push(
-                    {
-                        name: Authentication.user.displayName,
-                        isUser: true,
-                        subMenus: [
-                            {
-                                name: 'Trang Admin',
-                                state: 'admin.checkout-management'
-                            },
-                             {
-                                name: 'Đăng xuất',
-                                api: '/api/auth/signout'
-                            }
-                        ]
-                    }
-                );
+                var adminMenu = {
+                    name: Authentication.user.displayName,
+                    isUser: true,
+                    subMenus: [
+                        {
+                            name: 'Đăng xuất',
+                            api: '/api/auth/signout'
+                        }
+                    ]
+                };
+                // if user is addmin <-- add admin page
+                if (Authentication.user.roles.includes('admin')) {
+                 adminMenu.subMenus.splice(0, 0, {
+                     name: 'Trang Admin',
+                     state: 'admin.checkout-management'
+                 });
+                }
+                vm.menus.push(adminMenu);
+
+
             }
 
         }

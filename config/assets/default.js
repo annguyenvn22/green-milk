@@ -9,7 +9,8 @@ module.exports = {
                 'public/lib/components-font-awesome/css/font-awesome.css',
                 'public/lib/angular-ui-grid/ui-grid.css',
                 'public/lib/angular-bootstrap/ui-bootstrap-csp.css',
-                'public/lib/angular-block-ui/dist/angular-block-ui.css'
+                'public/lib/angular-block-ui/dist/angular-block-ui.css',
+                'public/lib/bootstrap-social/bootstrap-social.css'
                 // endbower
             ],
             js   : [

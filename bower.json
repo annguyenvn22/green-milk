@@ -19,6 +19,7 @@
     "angular-cookies": "^1.5.8",
     "a0-angular-storage": "^0.0.15",
     "angular-breadcrumb": "^0.4.1",
-    "angular-block-ui": "^0.2.2"
+    "angular-block-ui": "^0.2.2",
+    "bootstrap-social": "^5.0.0"
   }
 }

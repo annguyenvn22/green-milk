@@ -9,7 +9,8 @@ module.exports = {
                 // bower:css
                 'public/lib/bootstrap/dist/css/bootstrap.min.css',
                 'public/lib/components-font-awesome/css/font-awesome.min.css',
-                'public/lib/angular-ui-grid/ui-grid.min.css'
+                'public/lib/angular-ui-grid/ui-grid.min.css',
+                'public/lib/bootstrap-social/bootstrap-social.css'
                 // endbower
             ],
             js: [

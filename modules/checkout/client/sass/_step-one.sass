@@ -1,87 +1,11 @@
 #checkout-step-one
 
     padding-bottom: 2em
-
+    overflow: auto
+    
     .content
-        // overflow: auto --> border of .content bound 2 sub div
-        overflow: auto
-        //======================== LEFT START =======================
-        .authentication
-            border-right: 1px solid $bg-inactive
-            padding-bottom: 3em
+        padding: 2em 0
+        font-family: $font-open-sans
 
-            h2#loginLabel
-                font-family: $font-open-sans
-                color: $dark-blue
-                font-weight: 550
-            
-            i
-                cursor: pointer
-                color: $bg-inactive
-                &.fa.fa-facebook-square:hover
-                    color: $facebook-bg-active
-
-                &.fa.fa-google-plus-square
-                    margin-left: .2em
-                    &:hover
-                        color: $google-bg-active
-
-            // orLabel
-            #orLabel
-                margin-bottom: 1em
-
-            // username & password
-            .input-group + .input-group
-                margin-top: .8em
-                margin-bottom: .8em
-
-                // login button :)
-                & + div > btn
-                    border-radius: 1.3em
-                    font-family: $font-open-sans
-        //======================== LEFT END =======================
-
-        //======================== RIGHT START =======================
-        .registration
-            h4
-                color: $bg-inactive
-                font-family: $font-open-sans
-                margin-top: 1.6em
-            btn.btn-facebook
-                background-color: $facebook-bg-active
-                border-color: darken($facebook-bg-active, 10%)
-                font-family: $font-open-sans
-                border-radius: .8em
-                width: 15em
-
-                &:before
-                    content: "\f09a"
-                    font-family: FontAwesome
-                    padding-right: .5em
-                    margin-right: .5em
-                    font-size: 1.2em
-                    border-right: 2px solid white
-
-                &:hover, &:focus
-                    background-color: darken($facebook-bg-active, 10%)
-
-            btn.btn-google
-                background-color: $google-bg-active
-                border-color: darken($google-bg-active, 10%)
-                font-family: $font-open-sans
-                border-radius: .8em
-                width: 15em
-                padding-left: 0
-                margin-top: .8em
-
-                &:before
-                    content: "\f1a0"
-                    font-family: FontAwesome
-                    padding-right: .5em
-                    margin-right: .5em
-                    font-size: 1.2em
-                    border-right: 2px solid white
-
-                &:hover, &:focus
-                    background-color: darken($google-bg-active, 10%)
-            //======================== RIGHT END =======================
+        #button-google
+            margin-top: 1em
