@@ -1,6 +1,3 @@
-/**
- * Created by annvc on 8/7/2016.
- */
 (function () {
     'use strict';
 

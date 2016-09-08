@@ -31,18 +31,14 @@ exports.update = function (req, res) {
         user.updated     = Date.now();
         user.displayName = user.firstName + ' ' + user.lastName;
 
-        user.save(function (err) {
+        user.save(function (err, user) {
             if (err) {
                 return res.status(400).send({
                     message: errorHandler.getErrorMessage(err)
                 });
             } else {
-                req.login(user, function (err) {
-                    if (err) {
-                        res.status(400).send(err);
-                    } else {
-                        res.json(user);
-                    }
+                return res.status(200).send({
+                    user: user
                 });
             }
         });

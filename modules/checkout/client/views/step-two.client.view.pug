@@ -6,24 +6,30 @@
             .col-lg-6.col-lg-offset-3
                 h3(ng-if="vm.isReadonly") {{ vm.header }}
                 h3(ng-if="!vm.isReadonly") {{ vm.updateAddressLabel }}
-                form.form-horizontal
+                form.form-horizontal(name='vm.updateForm')
                     .form-group
                         label.control-label.col-lg-3(for="display-name") {{ vm.displayNameLabel }}
                         .col-lg-9
                             input.form-control(type="text" id="display-name" ng-model="vm.user.displayName" ng-readonly="true")
-                    .form-group
-                        label.control-label.col-lg-3(for="phone-number") {{ vm.phoneNumberLabel }}
+                    .form-group(ng-class='{"has-error": vm.updateForm.phoneNumber.$invalid}')
+                        label.control-label.col-lg-3(for="phone-number" type='phone') {{ vm.phoneNumberLabel }}
                         .col-lg-9
-                            input.form-control(type=text id="phone-number" ng-model="vm.user.phoneNumber" ng-readonly="vm.isReadonly")
-                    .form-group
+                            input.form-control(type='text' name='phoneNumber' id="phone-number" ng-model="vm.user.phoneNumber" ng-readonly="vm.isReadonly" required)
+                            span.help-block(ng-messages='vm.updateForm.phoneNumber.$error')
+                                span(ng-message='required') {{ vm.phoneNumberErrorMsg }}
+                    .form-group(ng-class='{"has-error": vm.updateForm.address.$invalid}')
                         label.control-label.col-lg-3(for="address") {{ vm.addressLabel }}
                         .col-lg-9
-                            textarea.form-control(id="address" ng-model="vm.user.address" ng-readonly="vm.isReadonly")
+                            textarea.form-control(id="address" name='address' ng-model="vm.user.address" ng-readonly="vm.isReadonly" required)
+                            span.help-block(ng-messages='vm.updateForm.address.$error')
+                                span(ng-message='required') {{ vm.addressErrorMsg }}
+                    .form-group(ng-show='vm.updateSuccessFlag')
+                        .col-lg-9.col-lg-offset-3.text-center
+                            span(uib-alert role='alert' type='success' dismiss-on-timeout='3000' close='vm.updateSuccessFlag = false')
+                                i.fa.fa-check-square-o
+                                span &nbsp;
+                                span {{ vm.successMessage }}
                     .form-group
                         .col-lg-12.text-right
-                            div(ng-if="vm.isReadonly")
-                                button.btn.btn-primary(ng-click="vm.updateOrNext()") {{ vm.header }}
-                                button.btn.btn-default#edit-user-info(ng-click="vm.isReadonly = !vm.isReadonly") {{ vm.editLabel }}
-                            div(ng-if="!vm.isReadonly")
-                                button.btn.btn-primary(ng-click="vm.updateOrNext()") {{ vm.updateLabel }}
-                                button.btn.btn-default#edit-user-info(ng-click="vm.isReadonly = !vm.isReadonly") {{ vm.cancelLabel }}
+                            button.btn.btn-primary(ng-click="vm.isReadonly ? vm.next() : vm.update()") {{ vm.isReadonly ? vm.header : vm.updateLabel }}
+                            button.btn.btn-default#edit-user-info(ng-click="vm.isReadonly = !vm.isReadonly") {{ vm.isReadonly ? vm.editLabel : vm.cancelLabel }}

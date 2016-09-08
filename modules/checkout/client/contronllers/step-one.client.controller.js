@@ -19,7 +19,7 @@
         function activate() {
 
             if (Authentication.user) {
-                goToStepTwo();
+                $state.go('^.step-two');
             }
             vm.title = 'Bước 1: Đăng nhập';
             vm.loginWithFacebook  = 'Đăng nhập bằng facebook';

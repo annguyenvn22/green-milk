@@ -100,7 +100,9 @@ var UserSchema = new Schema({
     },
     resetPasswordExpires: {
         type: Date
-    }
+    }, 
+    phoneNumber: String,
+    address: String
 });
 
 /**

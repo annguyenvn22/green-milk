@@ -5,20 +5,21 @@
         .module('checkout')
         .controller('StepTwoController', StepTwoController);
 
-    StepTwoController.$inject = ['$state', 'CartSingleService', 'CartMonthlyService', '$location', '$anchorScroll', 'Authentication'];
-    function StepTwoController($state, CartSingleService, CartMonthlyService, $location, $anchorScroll, Authentication) {
+    StepTwoController.$inject = ['$state', 'CartSingleService', 'CartMonthlyService', '$location', '$anchorScroll', 'Authentication', 'UserService'];
+    function StepTwoController($state, CartSingleService, CartMonthlyService, $location, $anchorScroll, Authentication, UserService) {
         var vm = this;
 
         activate();
-        vm.updateOrNext = updateOrNext;
+        vm.update = update;
         vm.user = Authentication.user;
+        vm.next = next;
 
         ///////////////////
 
         function activate() {
-            // if (!Authentication.user) {
-            //     $state.go('^.step-one');
-            // }
+            if (!Authentication.user) {
+                $state.go('^.step-one');
+            }
             vm.isReadonly           = true;
             vm.title                = 'Bước 2: Địa chỉ giao hàng';
             vm.header               = 'Giao đến địa chỉ này';
@@ -31,14 +32,24 @@
             vm.phoneNumberLabel     = 'SĐT: ';
             vm.service              = /single/.test($state.current.name) ? vm.service = CartSingleService : vm.service = CartMonthlyService;
             vm.notEditUserException = 'Hãy sửa thông tin để chúng tôi liên lạc dễ dàng bạn nhé :)';
+            vm.phoneNumberErrorMsg  = 'Xin vui lòng điền số điện thoại để chúng tôi liên lạc xác minh mua hàng.'
+            vm.addressErrorMsg      = 'Xin vui lòng điền địa chỉ để chúng tôi giao hàng đúng nơi';
+            vm.successMessage       = 'Cập nhật thông tin thành công';
         }
 
-        function updateOrNext() {
+        function next() {
+            $state.go('^.step-three');
+        }
+
+        function update() {
             if (vm.isReadonly) {
-                $state.go('^.step-three');
             } else {
-            // TODO call server api to update info
-                
+                UserService.update(vm.user,
+                    function () {
+                        vm.updateSuccessFlag = true;
+                        vm.isReadonly = true;
+                    });
+
             }
         }
     }
