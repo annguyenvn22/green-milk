@@ -7,7 +7,7 @@
 
     CheckoutService.$inject = ['$resource'];
     function CheckoutService($resource) {
-        var Checkout = $resource('/api/checkout/:checkoutId', {
+        var Checkout = $resource('/api/checkouts/:checkoutId', {
             // Default params.
         }, {
             // Actions.

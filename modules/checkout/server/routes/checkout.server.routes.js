@@ -9,7 +9,8 @@ module.exports = checkoutRouteConfig;
 
 function checkoutRouteConfig(app) {
 
-    app.route('/api/checkout')
-        .post(checkout.save);
+    app.route('/api/checkouts')
+        .post(checkout.save)
+        .get(checkout.list);
 
 }
